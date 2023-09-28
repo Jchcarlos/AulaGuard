@@ -961,10 +961,17 @@ nav {
 	color: #444444;
 }
 
-.mapa{
-    height : 9000%;
+.contact__map {
+	height: 780px;
 }
 
+.contact__map iframe {
+	width: 100%;
+}
+.row iframe{
+    width: 590px;
+    height: 700px;
+}
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
