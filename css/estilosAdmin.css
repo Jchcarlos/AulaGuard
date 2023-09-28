@@ -1,0 +1,125 @@
+:root {
+    --background: #18181b;
+    --text-light: #71717a;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --lora-font: 'Lora', serif;
+    --poppins-font: 'Poppins', sans-serif;
+    --lora-font: 'Lora', serif;
+    --color-card: #107acc;
+    --primary-color: #2f2f2f;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+/*Estilos navbar*/
+
+.container-fluid{
+    display: flex;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+.navbar-menu{
+    background-color: var(--background);
+}
+
+.navbar-toggler{
+    background-color: var(--white);
+}
+
+.navbar-toggler span{
+    background-color: var(--white);
+}
+
+.container-fluid a:last-child {
+    margin-right: 1%;
+}
+
+.container-fluid a{
+    color: var(--white);
+    margin-left: 4%;
+}
+.container-fluid a:hover{
+    color: var(--text-light);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/*Estilos main*/
+
+.titulo_principal h1 {
+    margin-top: 5%;
+    font-size: 4.5rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: var(--lora-font);
+}
+
+.card {
+    background-color: var(--primary-color);
+    margin: 0 15px;
+    width: 18rem;
+    height: 18rem;
+}
+
+.img-card {
+    max-width: 100%;
+    height: 60%;
+}
+
+.card-title {
+    text-align: center;
+    color: var(--white);
+}
+
+.ver-detalle{
+    text-align: center;
+    background-color: var(--text-light);
+    color: var(--white);
+    width: 100%;
+    border: 1px solid var(--background);
+}
+
+/*Estilos footer*/
+
+.footer {
+    margin-top: 5%;
+    background-color: var(--background);
+    padding: 2rem 0;
+}
+
+.footer_logo h4 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    color: var(--white);
+}
+
+.footer_logo p {
+    color: var(--white);
+}
+
+.footer_nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 2%;
+}
+
+.footer_link a {
+    font-weight: 500;
+    color: var(--white);
+    white-space: nowrap;
+}
