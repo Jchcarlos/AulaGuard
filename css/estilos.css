@@ -983,4 +983,59 @@ nav {
 	padding: 12px 30px;
 	border-radius: 50px;
 }
+/*---------------------
+  Services
+-----------------------*/
 
+.services {
+	padding-top: 80px;
+	padding-bottom: 50px;
+}
+
+.services__item {
+	padding-left: 65px;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.services__item i {
+	font-size: 36px;
+	color: #ca1515;
+	position: absolute;
+	left: 0;
+	top: 4px;
+}
+
+.services__item h6 {
+	color: #111111;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.services__item p {
+	margin-bottom: 0;
+}
+.section-title {
+	margin-bottom: 45px;
+}
+
+.section-title h4 {
+	color: #111111;
+	font-weight: 600;
+	text-transform: uppercase;
+	position: relative;
+	display: inline-block;
+}
+
+.section-title h4:after {
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 2px;
+	width: 70px;
+	background: #ca1515;
+	content: "";
+}
+.img{
+    background-repeat: no-repeat;
+}
