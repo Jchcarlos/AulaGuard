@@ -1,210 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AULAGUARD | CODECREATORS</title>    
-    <!--LINKS-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="/css/bootstrapstyles.css">
-    <link rel="stylesheet" href="/css/mostrarProductos.css">
-    
-</head>
-<body>
-    <!--HEADER-->
-    <header class="header">
-        <nav>
-            <!--LOGO-->
-            <div class="nav_logo"><a href="#">AulaGuard</a></div>
-            <!--NAVLINKS-->
-            <ul class="nav_links" id="nav-links">
-                <li class="link"><a href="#home">Inicio</a></li>
-                <li class="link"><a href="#choose">Acerca de </a></li>
-                <li class="link"><a href="#products">Productos</a></li>
-                <li class="link"><a href="#review">Testimonios</a></li>
-                <li class="link"><a href="#install">Contactanos</a></li>
-            </ul>
-            <!--LOGO-->
-            <div class="nav_menu_btn" id="menu-btn">
-                <span><i class="ri-menu-line"></i></span>
-            </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Pagina Producto</title>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body><br><br>
+		<main>
+			<div class="container-img">
+				<img
+					src="img/productos/cerradura.jpg"
+					alt="imagen-producto"
+				/><!--Imagen del producto-->
+			</div>
+			<div class="container-info-product"><br><br><br>
+				<div class="container-price">
+					<h1>
+						Cerradura Wi-Fi de seguridad
+					</h1>
+				</div><br>
+				<div class="container-price">
+					<span>Precio: $2,500.00</span>
+				</div><br>
+				<div class="container-add-cart">
+					<h3 class="cant">Cantidad: </h3>
+					<div class="container-quantity">
+						<input
+							type="number"
+							placeholder="1"
+							value="1"
+							min="1"
+							class="input-quantity"
+						/>
+						<div class="btn-increment-decrement">
+							<i class="fa-solid fa-chevron-up" id="increment"></i>
+							<i class="fa-solid fa-chevron-down" id="decrement"></i>
+						</div>
+					</div>
+					<button class="btn-add-to-cart">
+						<i class="fa-solid fa-cart-shopping"></i>
+						Añadir al carrito
+					</button>
+				</div>
 
-            <!--ACTIONS-->
-            <div class="nav_actions">
-                <span><i class="ri-shopping-cart-2-fill"></i></span>
-                <span><i class="ri-user-fill"></i></span>
-            </div>
-        </nav>
-        
-    </header>
+				<div class="container-description">
+					<div class="title-description">
+						<h4>Descripción</h4>
+						<i class="fa-solid fa-chevron-down"></i>
+					</div>
+					<div class="text-description">
+						<p>
+							Convierte tu casa en una Smart Home! <br>
+							Lleva la seguridad digital a tu puerta y cambia la forma de entrar con esta cerradura Wi-Fi.<br>
+							El funcionamiento se administra por medio de nuestra app Steren Home, en la que puedes agregar más dispositivos y compartir el control con otras personas. <br>
+							Incorpora 5 diferentes formas para obtener el acceso: <br>
+							Celular: Al conectarla a Internet por Wi-Fi, puedes dar el acceso, desde donde estés, con tu celular.<br>
+							RFID: La cerradura incluye 4 tags RF con los que se puede abrir al acercarlos. El equipo permite registrar hasta 100 tarjetas<br>
+							Huella: Abre tan solo con colocar tu dedo en la manija. El equipo tiene capacidad para almacenar hasta 100 huellas. <br>
+							Códigos: Genera códigos personalizados de 4 a 8 dígitos que pueden ser compartidos con personas de confianza. Puedes registrar hasta 100 códigos.<br>
+							Llave: Incorpora el sistema tradicional de apertura por llave física. El fresado lateral de la llave y el sistema antisegueta del cerrojo minimizan el riesgo de clonación y vandalismo. El equipo Incluye 2 llaves. <br>
+							Funciona con pilas1, así que no tienes que preocuparte si hay un corte de energía. Además, en caso de que se agoten las baterías, puedes alimentarla temporalmente con una power bank, a través de su puerto micro USB. <br>
+						</p>
+					</div>
+				</div>
 
-    <!--SECCTION CHOOSE-->
-    <!-- Product section-->
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/assets/imgs/cerradura.png" alt="..." /></div>
-                <div class="col-md-6">
-                    <div class="small mb-1">ALRT-0001</div>
-                    <h1 class="display-5 fw-bolder">AuguardX01</h1>
-                    <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through">$45.00</span>
-                        <span>$40.00</span>
-                    </div>
-                    <p class="lead">Cerradura inteligente</p>
-                    <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Related items section-->
-    <section class="py-5 bg-light">
-        <div class="container px-4 px-lg-5 mt-5">
-            <h2 class="fw-bolder mb-4">Productos relacionados</h2>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="/assets/imgs/cerradura.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">AuguardX02</h5>
-                                <!-- Product price-->
-                                $1,600.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/HTML/mostrarProductos.html">Ver producto</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Rebaja</div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="/assets/imgs/cerradura.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">AuguardX03</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$1,800.00</span>
-                                $1,200.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/HTML/mostrarProductos.html">Ver producto</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Rebaja</div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="/assets/imgs/cerradura.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">AuguardX05</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$1,500.00</span>
-                                $1,499.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/HTML/mostrarProductos.html">Ver Producto</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="/assets/imgs/cerradura.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">AuguardX06</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $1,400.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/HTML/mostrarProductos.html">Ver Producto</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+				<div class="container-additional-information">
+					<div class="title-additional-information">
+						<h4>Especificaciones</h4>
+						<i class="fa-solid fa-chevron-down"></i>
+					</div>
+					<div class="text-additional-information hidden">
+						<p>
+							Vincúlala a tu módem por Wi-Fi <br>
+							Comparte el control con otros usuarios<br>
+							Accede con:<br>
+							Huella digital<br>
+							Llaves <br>
+							Códigos numéricos <br>
+							Tarjetas RFID <br>
+							Genera códigos y envíalos por mensaje<br>
+							Puedes crear contraseñas temporales <br>
+							Lleva registro de aperturas <br>
+							Controla los usuarios registrados para abrir <br>
+							Tiene alarma por intentos fallidos <br>
+							Tiene switch para activar el seguro desde el interior <br>
+							Incorpora puerto de alimentación de emergencia <br>
+							Incluye 2 llaves y 4 tarjetas RFID <br>
+						</p>
+					</div>
+				</div>
 
+				<div class="container-reviews">
+					<div class="title-reviews">
+						<h4>Descripción tecnica</h4>
+						<i class="fa-solid fa-chevron-down"></i>
+					</div>
+					<div class="text-reviews hidden">
+						<p>
+							Alimentación: 6 Vcc (4 x AAA) <br>
+							Cantidad de huellas dactilares: 100 <br>
+							Back set ajustable: 60 / 70 mm <br>
+							Espesor de puerta: 35 a 50 mm <br>
+							Cerrojo antisegueta: 12 mm <br>
+							Capacidad de usuarios: 300 (100 huellas digitales + 100 tarjeta IC + 100 contraseñas) <br>
+						</p>
+					</div>
+				</div>
 
-    <!--FOOTER-->
-    <footer class="footer">
-        <div class="section_container footer_container">
-          <div class="footer_content">
-            <h4>Suscribete para mas noticias</h4>
-            <p>
-              Agrega tu correo para recibir nuevas noticias u actualizaciones
-            </p>
-          </div>
-          <div class="footer_form">
-            <form action="/">
-              <input type="text" placeholder="Ingresa tu correo" />
-              <button>Suscribete</button>
-            </form>
-          </div>
-        </div>
-        <div class="section_container footer_bar">
-          <div class="footer_logo">
-            <h4><a href="#">AULAGUARD</a></h4>
-            <p>Copyright © 2023 CODECREATORS. Todos los derechos reservados.</p>
-          </div>
-          <ul class="footer_nav">
-            <li class="footer_link"><a href="#">Acerca de </a></li>
-            <li class="footer_link"><a href="#">Colaboradores</a></li>
-            <li class="footer_link"><a href="#">Politicas de privacidad</a></li>
-          </ul>
-        </div>
-    </footer>
-
-
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="/js/main.js"></script>
-</body>
+				<div class="container-social">
+					<span>Compartir</span>
+					<div class="container-buttons-social">
+						<a href="#"><i class="fa-solid fa-envelope"></i></a>
+						<a href="#"><i class="fa-brands fa-facebook"></i></a>
+						<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="#"><i class="fa-brands fa-instagram"></i></a>
+						<a href="#"><i class="fa-brands fa-pinterest"></i></a>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="js/index.js"></script>
+	</body>
 </html>
