@@ -6,6 +6,9 @@
     <title>AULAGUARD | CODECREATORS</title>    
     <!--LINKS-->
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="spectre.min.css">
+<link rel="stylesheet" href="spectre-exp.min.css">
+<link rel="stylesheet" href="spectre-icons.min.css">
     <link href="../css/checkbootstrap.min.css" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -57,7 +60,15 @@
     </header>
     
     <!-- Seccion de productos -->
-    <main><br><br>
+    <main>
+      <!--Breadcrumbs-->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="productos.html">Productos</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Carrito</li>
+        </ol>
+      </nav>
+      <!--Breadcrumbs-->
         <div class="container">
             <h2 class="text-center">Carrito de compra</h2><br>
             <div class="row mb-5">
@@ -183,9 +194,10 @@
                     </button>
                   </div>
                   <div class="col-md-6">
+                    <a href="productos.html">
                     <button class="btn btn-outline-black btn-sm btn-block">
                       Seguir comprando
-                    </button>
+                    </button></a>
                   </div>
                 </div>
               </div>
