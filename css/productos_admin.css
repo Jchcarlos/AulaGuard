@@ -15,54 +15,14 @@
     padding: 0%;
 }
 
-/*Estilos navbar*/
-
-.container-fluid {
-    display: flex;
-}
-
-.navbar-nav .nav-item:last-child {
-    margin-right: 0;
-}
-
-.navbar-menu {
-    background-color: var(--background);
-}
-
-.navbar-toggler {
-    background-color: var(--white);
-}
-
-.navbar-toggler span {
-    background-color: var(--white);
-}
-
-.container-fluid a:last-child {
-    margin-right: 1%;
-}
-
-.container-fluid a {
-    color: var(--white);
-    margin-left: 4%;
-}
-
-.container-fluid a:hover {
-    color: var(--text-light);
-}
-
-.navbar-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
 /*Estilos main*/
-.bx-add-to-queue{
+
+.add-producto{
     font-size: 2.2rem;
     margin-left: 4%;
     color: var(--background);
 }
+
 
 .bx-add-to-queue:hover{
     font-size: 2.3rem;
@@ -97,6 +57,7 @@
 
 .bx-edit{
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .bx-edit:hover{
@@ -105,6 +66,7 @@
 
 .bx-trash {
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .bx-trash:hover {
