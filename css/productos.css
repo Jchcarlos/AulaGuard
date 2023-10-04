@@ -1,7 +1,7 @@
 /*FONTS*/
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-/*-----VARIABLES-----*/
+/*-----VARIABLES y PROPIEDADES-----*/
 :root{
     --primary-color: #2f2f2f;
     --text-dark: #18181b;
@@ -30,6 +30,18 @@
 }
 .section_subheader{
     color: var(--text-light);
+}
+.btn1{ /*Material para cambio de color de botones de carrito y checkout*/
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+.btn1:hover{
+    background-color: var(--text-dark);
 }
 .btn{
     padding: 0.75rem 2rem;
