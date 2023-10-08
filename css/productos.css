@@ -1085,3 +1085,13 @@ nav {
 .site-btn{
     background-color: rgb(79, 179, 230);
 }
+.sele{
+    border-radius: 30px;
+    background-color: white;
+    text-align: center;
+    color: #b1b0b0;
+    margin-bottom: 20px;
+    width: 20%;
+    border-top: #919d94;
+    border-left: #cad8ce;
+}
