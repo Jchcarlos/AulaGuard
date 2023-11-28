@@ -1,0 +1,17 @@
+Usuarios de acceso
+--------- ADMINISTRADOR --------
+
+correo
+admin@admin.com
+contraseña
+administrador
+
+--------- USUARIOS --------------
+
+user@gmail.com
+prueba
+
+
+Para poder cerrar la sesion en el usuario es en el apartado de acerca de hasta abajo se esta corrigiendo la cabecera para poder colocar las opciones para el usuario
+
+El administrador ya muestra su perfil con su dash y puede cerrar sesion sin problema
