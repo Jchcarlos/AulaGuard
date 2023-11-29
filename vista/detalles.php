@@ -1,6 +1,7 @@
 <?php
 
 $producto_id = $_GET['producto_id'];
+$id_usuario = $_GET['id_usuario'];
 $conectar = mysqli_connect("localhost", "root", "", "aulaguard");
 $sql = "SELECT * FROM productos where producto_id = '$producto_id'";
 $consulta = mysqli_query($conectar, $sql);
@@ -12,7 +13,7 @@ if ($row = mysqli_fetch_array($consulta)) {
   $producto_descripcion = $row['producto_descripcion'];
   $producto_precio = $row['producto_precio'];
 
-  $img = base64_encode($row['img']);
+  $img = base64_encode($row['producto_imagen']);
   $imagenSrc = "data:image/png;base64," . $img;
   $producto_descuento = $row['producto_descuento'];
   $precio_desc = $producto_precio - (($producto_precio * $producto_descuento) / 100);

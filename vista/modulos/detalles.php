@@ -12,7 +12,8 @@
           <span>Precio: <?php echo '$'.number_format($producto_precio, 2, '.', '.'); ?></span>
         </div>
         <br />
-        <div class="container-add-cart">
+        <form action="../controlador/ctrlCarrito.php?producto_id=<?php echo $row['producto_id']?>&precioUnitario=<?php echo $producto_precio; ?>&id_usuario=1>" method="post">
+          <div class="container-add-cart">
           <h3 class="cant">Cantidad:</h3>
           <div class="container-quantity">
             <input
@@ -21,17 +22,20 @@
               value="1"
               min="1"
               class="input-quantity"
+              name="cantidad"
             />
             <div class="btn-increment-decrement">
               <i class="fa-solid fa-chevron-up" id="increment"></i>
               <i class="fa-solid fa-chevron-down" id="decrement"></i>
             </div>
           </div>
-          <button class="btn-add-to-cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            Añadir al carrito
+          <button
+                class="btn-add-to-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <input class="btn-add-to-cart" type="submit" value="Añadir al carrito">
           </button>
-        </div>
+          </div>
+        </form>
 
         <div class="container-description">
           <div class="title-description">

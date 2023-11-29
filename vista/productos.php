@@ -44,7 +44,7 @@
 
       <!--ACTIONS-->
       <div class="nav_actions">
-        <a href="carrito.php"><span><i class="ri-shopping-cart-2-fill"></i></span></a>
+        <a href="carrito.php?id_usuario=1"><span><i class="ri-shopping-cart-2-fill"></i></span></a>
         <a href="login.php"><span><i class="ri-user-fill"></i></span></a>
       </div>
     </nav>
@@ -83,7 +83,7 @@
               <div class="card h-100">
                 <!-- Sale badge-->
                 <!-- Product image-->
-                <?php echo '<img src="data:image/jpeg; base64,' . base64_encode(($row['img'])) . '" class="card-img-top">'; ?>
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode(($row['producto_imagen'])) . '" class="card-img-top">'; ?>
                 <!-- Product details-->
                 <div class="card-body p-4">
                   <div class="text-center">
@@ -104,7 +104,7 @@
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                   <div class="text-center">
                   <input type="text" name="productoId" value="<?php echo $producto_id ?>">
-                    <a class="btn btn-outline-dark mt-auto" href="detalles.php?producto_id=<?php echo $row['producto_id']; ?>">Comprar Ahora</a>
+                    <a class="btn btn-outline-dark mt-auto" href="detalles.php?producto_id=<?php echo $row['producto_id']; ?>&id_usuario=1">Comprar Ahora</a>
                   </div>
                 </div>
               </div>
