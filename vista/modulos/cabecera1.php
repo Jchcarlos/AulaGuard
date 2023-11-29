@@ -12,7 +12,6 @@
       <li class="link"><a href="productos.php">Productos</a></li>
       <li class="link"><a href="acerca.php">Acerca de</a></li>
       <li class="link"><a href="contact.php">Contactanos</a></li>
-      <li class="link"><a href="direcciones.php">Direcciones</a></li>
     </ul>
     <!--LOGO-->
     <div class="nav_menu_btn" id="menu-btn">
@@ -34,8 +33,8 @@
             <p class="mb-1 mt-3 font-weight-semibold">Bienvenido</p>
           </div>
           <a class="dropdown-item" href="../perfil.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Ver Perfil</a>
-          <a class="dropdown-item" href="../login.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Iniciar sesion</a>
-          <a class="dropdown-item" href="../php//cerrar_session.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Cerrar Sesion</a>
+          <a class="dropdown-item" href="../vista/login.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Iniciar sesion</a>
+          <a class="dropdown-item" href="../vista/php/cerrar_session.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Cerrar Sesion</a>
         </div>
       </li>
 
