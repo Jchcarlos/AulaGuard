@@ -5,7 +5,7 @@
     //Envio de datos
     $usuario_nombre = $_POST['usuario_nombre'];
     $usuario_apellidoP = $_POST['usuario_apellidoP'];
-    $usuario_email = $_POST['usuario_email'];
+    $usuario_email = $_POST['usuario_email']; 
     $usuario_password = $_POST['usuario_password'];
                
     //Encriptar contraseña

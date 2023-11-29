@@ -16,14 +16,26 @@
 
         // Compara las contraseñas en texto plano
         if ($stored_password === $usuario_password) {
-            $usuario_email = $row['usuario_email'];
-            $usuario_rol = $row['usuario_rol'];
+           // Almacena todas las variables en un arreglo de sesión
+            $usuario_data = array(
+                'usuario_nombre' => $row['usuario_nombre'],
+                'usuario_apellidoP' => $row['usuario_apellidoP'],
+                'usuario_apellidoM' => $row['usuario_apellidoM'],
+                'usuario_email' => $row['usuario_email'],
+                'usuario_password' => $row['usuario_password'],
+                'usuario_telefono' => $row['usuario_telefono'],
+                'usuario_rol' => $row['usuario_rol']
+            );
 
-            $_SESSION['usuario_email'] = $usuario_email;
-            $_SESSION['usuario_rol'] = $usuario_rol;
+            // Muestra algunas variables para depuración
+            var_dump($usuario_data);
+            var_dump($_SESSION);
+
+            // Asigna el arreglo de sesión
+            $_SESSION['usuario_data'] = $usuario_data;
 
             // Redirige al usuario según su rol
-            if ($usuario_rol === 'administrador') {
+            if ($usuario_data['usuario_rol'] === 'administrador') {
                 header("Location: ../admin/index.php");
             } else {
                 header("Location: ../../index.php");
@@ -45,6 +57,5 @@
             </script>
         ';
     }
-
-    
 ?>
+
