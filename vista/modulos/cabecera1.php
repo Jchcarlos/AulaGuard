@@ -32,7 +32,7 @@
           <div class="dropdown-header text-center">
             <p class="mb-1 mt-3 font-weight-semibold">Bienvenido</p>
           </div>
-          <a class="dropdown-item" href="../perfil.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Ver Perfil</a>
+          <a class="dropdown-item" href="perfil.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Ver Perfil</a>
           <a class="dropdown-item" href="../vista/login.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Iniciar sesion</a>
           <a class="dropdown-item" href="../vista/php/cerrar_session.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Cerrar Sesion</a>
         </div>
