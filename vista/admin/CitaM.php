@@ -68,11 +68,14 @@ if (!isset($_SESSION['usuario_email']) || $_SESSION['usuario_rol'] !== 'administ
             </div>
             <!-- content-wrapper ends -->
             <main>
-            <?php
-              include "../../modelo/instaladores.php";
-              $cita= new Instalador();
-              $cita->citasAdmin();
+
+            <?php   
+                include "../../modelo/instaladores.php";
+                $id=$_GET['idC'];
+                $instalador =new Instalador();
+                $instalador->modificarCita($id);
             ?>
+
             </main>
             <!-- partial:partials/_footer.html -->
             <?php

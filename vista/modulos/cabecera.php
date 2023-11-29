@@ -12,6 +12,7 @@
             <li class="link"><a href="vista/productos.php">Productos</a></li>
             <li class="link"><a href="vista/acerca.php">Acerca de</a></li>
             <li class="link"><a href="vista/contact.php">Contactanos</a></li>
+            <li class="link"><a href="vista/direcciones.php">Direcciones</a></li>
         </ul>
         <!--LOGO-->
         <div class="nav_menu_btn" id="menu-btn">
