@@ -51,6 +51,21 @@
           </div>
         </div>
 
+      <!--<div class="container-description">
+        <div class="title-description">
+          <h4>Califica el producto </h4>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="text-description">
+          <p>
+            <?php
+                include "./modulos/View_Puntuaciones.php";
+                ?>
+              </p>
+            </div>
+      </div>-->
+
+
         <!--<div class="container-additional-information">
           <div class="title-additional-information">
             <h4>Especificaciones</h4>
