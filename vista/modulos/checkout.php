@@ -1,4 +1,14 @@
 <main><br><br>
+
+<?php
+$id_usuario = $_GET['id_usuario'];
+
+$conectar = mysqli_connect("localhost", "root", "", "aulaguard");
+
+$sql = "SELECT dc.*, p.* FROM detalles_compras dc JOIN productos p ON dc.producto_id = p.producto_id WHERE dc.id_usuario = '$id_usuario'";
+$consulta = mysqli_query($conectar, $sql);
+?>
+
     <div class="container">
       <!--<div class="row mb-5">
           <div class="col-md-12">
@@ -162,27 +172,35 @@
                     <th>Precio</th>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Cerradura <strong class="mx-2">x</strong> 1</td>
-                      <td>$250.00</td>
-                    </tr>
-                    <tr>
-                      <td>Persiana <strong class="mx-2">x</strong> 1</td>
-                      <td>$100.00</td>
-                    </tr>
-                    <td class="text-black font-weight-bold"><strong>Subtotal</strong></td>
-                    <td class="text-black">$350.00</td>
-                    </tr>
-                    <tr>
-                      <td class="text-black font-weight-bold"><strong>IVA</strong></td>
-                      <td class="text-black">$50.00</td>
-                    </tr>
-                    <tr>
-                    <tr>
-                      <td class="text-black font-weight-bold"><strong>Total</strong></td>
-                      <td class="text-black font-weight-bold"><strong>$400.00</strong></td>
-                    </tr>
-                  </tbody>
+                        <?php
+                        $subtotal = 0;
+                        while ($row = mysqli_fetch_assoc($consulta)) {
+                            $producto_nombre = $row['producto_nombre'];
+                            $precio = $row['producto_precio'];
+                            $cantidad = $row['det_com_cantidad'];
+                            $total = $precio * $cantidad;
+                            $subtotal += $total;
+                            ?>
+                            <tr>
+                                <td><?php echo $producto_nombre; ?> <strong class="mx-2">x</strong> <?php echo $cantidad; ?></td>
+                                <td>$<?php echo number_format($total, 2); ?></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Subtotal</strong></td>
+                            <td class="text-black">$<?php echo number_format($subtotal, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>IVA</strong></td>
+                            <td class="text-black">$<?php echo number_format($subtotal * 0.1, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Total</strong></td>
+                            <td class="text-black font-weight-bold"><strong>$<?php echo number_format($subtotal * 1.1, 2); ?></strong></td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <div class="border p-3 mb-5">

@@ -72,7 +72,7 @@ $consulta = mysqli_query($conectar, $sql);
                     ?>
                   </td>
                   <td>
-                    <form id="eliminarForm" method="post" action="../controlador/ctrlCarrito.php">
+                    <form id="eliminarForm" method="post" action="../controlador/ctrlCarrito.php?id_usaurio=1">
                       <input type="hidden" name="opcion" id="opcion" value="2">
                       <input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>">
                       <input type="hidden" name="producto_id" value="<?php echo $row['producto_id']; ?>">
@@ -94,9 +94,10 @@ $consulta = mysqli_query($conectar, $sql);
       <div class="col-md-6">
         <div class="row mb-5">
           <div class="col-md-6 mb-3 mb-md-0">
-            <button class="btn1 btn-black btn-sm btn-block">
-              Vaciar carrito
-            </button>
+            <form id="vaciarForm" method="post" action="../controlador/ctrlCarrito.php?id_usuario=2>">
+              <input type="hidden" name="opcion" id="opcion" value="3">
+              <button type="submit" class="btn1 btn-black btn-sm btn-block eliminar-btn">Vaciar carrito</button>
+            </form>
           </div>
           <div class="col-md-6">
             <a href="productos.php">
@@ -143,7 +144,7 @@ $consulta = mysqli_query($conectar, $sql);
             <div class="row">
               <div class="col-md-12">
                 <!-- O poner etiqueta a-->
-                <button class="btn1 btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.php'">
+                <button class="btn1 btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.php?id_usuario=1'">
                   Realizar pedido
                 </button>
               </div>

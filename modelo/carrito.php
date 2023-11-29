@@ -28,7 +28,7 @@ class Carrito{
         if ($registro) {
             echo '<script>';
             echo 'alert("Registro agregado correctamente");';
-            echo 'setTimeout(function(){ window.location.href = "../vista/productos.php"; }, 100);';
+            echo 'setTimeout(function(){ window.location.href = "../vista/detalles.php?producto_id=11&id_usuario=1"; }, 100);';
             echo '</script>';
             exit();
         } else {
@@ -36,10 +36,31 @@ class Carrito{
         }
     }
 
-    public function eliminarProducto($id_usuario){
+    public function eliminarProducto($id_usuario, $producto_id){
 
         $conectar = $this->conectorBD();
         $id_usuario = mysqli_real_escape_string($conectar, $id_usuario);
+
+        // Corrige la consulta de eliminación
+        $sql = "DELETE FROM detalles_compras WHERE id_usuario = '$id_usuario' AND producto_id = '$producto_id'";
+
+        $resultado = mysqli_query($conectar, $sql);
+
+        if ($resultado) {
+            echo '<script>';
+            echo 'alert("Producto eliminado");';
+            echo 'setTimeout(function(){ window.location.href = "../vista/carrito.php?id_usuario=1"; }, 100);';
+            echo '</script>';
+        } else {
+            echo '<script>alert("Error al eliminar el producto");</script>';
+        }
+    }
+    
+    public function vaciarCarrito(){
+        $this->id_usuario = $_GET['id_usuario'];
+
+        $conectar = $this->conectorBD();
+        $id_usuario = mysqli_real_escape_string($conectar, $this->id_usuario);
 
         // Corrige la consulta de eliminación
         $sql = "DELETE FROM detalles_compras WHERE id_usuario = '$id_usuario'";
