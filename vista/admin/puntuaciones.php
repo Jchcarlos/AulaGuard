@@ -3,14 +3,14 @@
 session_start();
 
 // Verificar si la sesión está iniciada y si el rol del usuario es "administrador"
-if (!isset($_SESSION['usuario_email']) || $_SESSION['usuario_rol'] !== 'administrador') {
+if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administrador') {
   echo '
-        <script>
-            alert("No tienes permiso para acceder a esta página. Debes iniciar sesión como administrador.");
-            window.location = "../../index.php";
-        </script>
-    ';
-  die();
+      <script>
+          alert("No tienes permiso para acceder a esta página.");
+          window.location = "admin/index.php";
+      </script>
+  ';
+  exit();
 }
 ?>
 <!DOCTYPE html>
