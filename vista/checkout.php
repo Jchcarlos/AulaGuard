@@ -30,6 +30,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+   <script src="https://www.paypal.com/sdk/js?client-id=AS2NScI4dKHjhjjBwwQzvVXagF4yGypHza5bhGieM_uRhbptUY_iuEYIIing30YobaeLKzh3W49LPlPT&currency=MXN"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
