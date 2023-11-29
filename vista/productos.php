@@ -36,6 +36,7 @@
         <li class="link"><a href="productos.php">Productos</a></li>
         <li class="link"><a href="acerca.php">Acerca de</a></li>
         <li class="link"><a href="contact.php">Contactanos</a></li>
+        <li class="link"><a href="direcciones.php">Direcciones</a></li>
       </ul>
       <!--LOGO-->
       <div class="nav_menu_btn" id="menu-btn">
@@ -160,6 +161,7 @@
   <script src="https://kit.fontawesome.com/a45e4463fd.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>

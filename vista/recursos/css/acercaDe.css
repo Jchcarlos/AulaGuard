@@ -16,6 +16,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+
+.mar{
+        margin: 10px;
+        border:50px;
+        border: solid;
+        border-radius: 6px;
+        background: linear-gradient(white, rgb(171, 188, 235)192, 240, 255);
+        text-align: center;
+}
+
 .section_container{
     max-width: var(--max-width);
     margin: auto;

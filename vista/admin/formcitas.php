@@ -68,11 +68,29 @@ if (!isset($_SESSION['usuario_email']) || $_SESSION['usuario_rol'] !== 'administ
             </div>
             <!-- content-wrapper ends -->
             <main>
+            
             <?php
-              include "../../modelo/instaladores.php";
-              $cita= new Instalador();
-              $cita->citasAdmin();
+            /*$fechaActual = new DateTime();
+            $fechaActual->sub(new DateInterval('P1D'));
+            $fechaNueva = $fechaActual->format('d-m-Y');*/
+            include "../../modelo/instaladores.php";
+            $id=$_GET['idV'];
             ?>
+
+    <form action="../../controlador/Control.php" method="post">
+
+        Seleccione la fecha de cita:
+        <br>
+        <input type="datetime-local" name="fecha" id="fecha">
+        <br>
+        <input type="hidden" name="idVenta" value="<?php print $id ?>">
+       
+       <input type="hidden" name="status" value="Pendiente">
+        
+        <button type="submit" name="RegistrarCita">Registrar cita</button>
+    </form>
+
+
             </main>
             <!-- partial:partials/_footer.html -->
             <?php
