@@ -11,7 +11,7 @@ $direc->inicializar($_POST['Calle'], $_POST['NumeroInterior'], $_POST['NumeroExt
 $direc->agregarDireccion();
 print '<script>
     window.alert("Dirección agregada");
-    window.location.href="../index.php";
+    window.location.href="../vista/direcciones.php";
     </script>';
 
 }//Registrar una cita para un producto
@@ -48,7 +48,7 @@ elseif(isset($_REQUEST['ModificarDireccion'])){
     $direc->modDireccion($_POST['id']);
     print '<script>
     window.alert("Dirección modificada exitosamente");
-    window.location.href="../index.php";
+    window.location.href="../vista/direccionM.php";
     </script>';
 }
 

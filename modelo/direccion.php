@@ -38,12 +38,12 @@ class Direccion{
         $query =mysqli_query($con, "SELECT * FROM direcciones") or die (mysqli_error($con));
                                                         //where id_cliente='$idsession'
         foreach($query as $reg){
-           print'<div class="card">
+           print'<div class="card mar" style="width: 18rem; ">
         <div class="card-body">
-            <h5 class="card-title">'.$reg['direccion_calle'].'</h5>
-            <p class="text">'.$reg['direccion_numExt'].'<br>'.$reg['direccion_codigoPost'].'</p>
+            <h5 class="card-title">Calle: '.$reg['direccion_calle'].'</h5>
+            <p class="text">Numero Exterior: '.$reg['direccion_numExt'].'<br>C.P :'.$reg['direccion_codigoPost'].'</p>
             <br>
-            <form method="POST" action="../Vista/direccionM.php?idD='.$reg['direccion_id'].'"><button type="submit">Modificar</button> </form> <a href="../Vista/Control.php?idB='.$reg['direccion_id'].'"><button>Borrar</button></a>
+            <form method="POST" action="../vista/direccionM.php?idD='.$reg['direccion_id'].'"><button type="submit" class="btn btn-warning">Modificar</button> </form> <a href="../Vista/Control.php?idB='.$reg['direccion_id'].'"><button class="btn btn-danger">Borrar</button></a>
         </div>
         </div>';                                                                                                                                                                                                                                             print "<div>";
            // <form method="POST" action="../Control/crud_admin.php"> <button class="btn-chido" name="borrar" value="'.$reg['id_producto'].'"> Eliminar </button></td><td class="espe"><button class="btn-chido"><a href="../Control/di.php?idP='.$reg['id_producto'].'">Modificar </a></button>
@@ -57,37 +57,57 @@ class Direccion{
         $query=mysqli_fetch_assoc($query);
 
         
-        print'<h1>Modificar Direccion</h1>
-        <form action="../Controlador/Control.php" method="post">
-        ID
-        <br>
-        <input type="number" name="id" id="id" value="'.$query["direccion_id"].'">
-        <br>
-        Nombre de la calle
-        <input type="text" name="Calle" id="Calle" value="'.$query["direccion_calle"].'">
-        <br>
-        Numero Interior
-        <input type="number" name="NumeroInterior" id="NumeroInterior" value="'.$query["direccion_numInt"].'">
-        <br>
-        Numero Exterior
-        <input type="number" name="NumeroExterior" id="NumeroExterior" value="'.$query["direccion_numExt"].'">
-        <br>
-        Estado
-        <input type="text" name="Estado" id="Estado" value="'.$query["direccion_estado"].'">
-        <br>
-        Colonia
-        <input type="text" name="Colonia" id="Colonia" value="'.$query["direccion_colonia"].'">
-        <br>
-        Codigo Postal
-        <input type="number" name="CodigoPos" id="CodigoPos" value="'.$query["direccion_codigoPost"].'">
-        <br>
-        Ciudad
-        <input type="text" name="Ciudad" id="Ciudad" value="'.$query["direccion_ciudad"].'">
-        <br>
-
-        <button type="submit" name="ModificarDireccion">Modificar direccion</button>
+        print'<section class="section_login">
+        <div class="center">
         
-    </form>';
+        <h1 class="title">Modificar Dirección</h1>
+        <form action="../Controlador/Control.php" method="post">
+
+        <input type="hidden" name="id" id="id" value="'.$query["direccion_id"].'">
+
+        <div class="txt_field">
+        Nombre de la calle
+        <br>
+        <input type="text" class="col-sm-2 col-form-label" name="Calle" id="Calle" value="'.$query["direccion_calle"].'">
+        </div>
+
+
+        <div class="txt_field">        
+        Numero Interior
+        <br>
+        <input type="number" class="col-sm-2 col-form-label" name="NumeroInterior" id="NumeroInterior" value="'.$query["direccion_numInt"].'">
+         </div>
+
+        <div class="txt_field">
+        Numero Exterior
+        <br>
+        <input type="number" class="col-sm-2 col-form-label" name="NumeroExterior" id="NumeroExterior" value="'.$query["direccion_numExt"].'">
+         </div> 
+        <div class="txt_field">
+        Estado
+        <br>
+        <input type="text" class="col-sm-2 col-form-label" name="Estado" id="Estado" value="'.$query["direccion_estado"].'">
+         </div> 
+        <div class="txt_field">
+        Colonia
+        <br>
+        <input type="text" class="col-sm-2 col-form-label" name="Colonia" id="Colonia" value="'.$query["direccion_colonia"].'">
+         </div> 
+        <div class="txt_field">
+        Codigo Postal
+        <br>
+        <input type="number" class="col-sm-2 col-form-label" name="CodigoPos" id="CodigoPos" value="'.$query["direccion_codigoPost"].'">
+         </div> 
+        <div class="txt_field">        
+        Ciudad
+        <input type="text" class="col-sm-2 col-form-label" name="Ciudad" id="Ciudad" value="'.$query["direccion_ciudad"].'">
+        </div> 
+        
+        <button type="submit" class="btn btn-warning" name="ModificarDireccion">Modificar direccion</button>
+        
+        </form>
+        </div>
+    </section>';
         
     }
 

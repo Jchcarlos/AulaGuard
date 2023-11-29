@@ -36,6 +36,7 @@
         <li class="link"><a href="productos.php">Productos</a></li>
         <li class="link"><a href="acerca.php">Acerca de</a></li>
         <li class="link"><a href="contact.php">Contactanos</a></li>
+        <li class="link"><a href="direcciones.php">Direcciones</a></li>
       </ul>
       <!--LOGO-->
       <div class="nav_menu_btn" id="menu-btn">
