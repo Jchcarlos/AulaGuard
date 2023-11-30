@@ -12,6 +12,12 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   ';
   exit();
 }
+
+include "../../modelo/conexion.php"; 
+
+// Consulta para obtener los comentarios
+$query = "SELECT * FROM comentarios";
+$result = mysqli_query($conexion, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,25 +76,27 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             <main>
             <h1>Comentarios</h1> <br><br>
             <a href="agregarCategoria.php" class="btn btn-primary" data-toggle="modal" style="margin-bottom: 8px;"><span class="fa fa-plus"></span> Nuevo</a>
-              <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
-                <thead>
-                  <th>ID Categoria</th>
-                  <th>Nombre</th>
-                  <th>Nombre</th>
-                  <th>Acciones</th>
-                </thead>
-                <tbody>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="editarCategoria.php?categoria_id=<?php echo $resultado["categoria_id"]?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span> Editar</a>
-                    <a href="eliminarCategoria.php?categoria_id=<?php echo $resultado["categoria_id"]?>" class="btn btn-danger btn-sm" ><span class="fa fa-trash"></span> Eliminar</a>
-                  </td>
-                  </tr>
-                </tbody>
-              </table>
+            <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
+  <thead>
+    <th>ID Comentario</th>
+    <th>Tipo</th>
+    <th>Email</th>
+    <th>Comentario</th>
+  </thead>
+  <tbody>
+    <?php
+    // Iteración sobre los comentarios
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>" . $row['comentario_id'] . "</td>";
+      echo "<td>" . $row['comentario_tipo'] . "</td>";
+      echo "<td>" . $row['comentario_email'] . "</td>";
+      echo "<td>" . $row['comentario_comentario'] . "</td>";
+      
+    }
+    ?>
+  </tbody>
+</table>
             </main>
             <!-- partial:partials/_footer.html -->
             <?php

@@ -1,18 +1,23 @@
 <?php
-    //Metodo Session iniciada
-    session_start();
+//Metodo Session iniciada
+session_start();
+include "../../modelo/conexion.php"; 
 
-    if(!isset($_SESSION['usuario_email'])){
-        echo '
+// Verifica si no hay una sesión de usuario activa
+if (!isset($_SESSION['usuario_data'])) {
+    // Redirige al usuario a la página de inicio de sesión
+    echo '
             <script>
                 alert("Por favor debes iniciar sesion");
                 window.location = "acerca.php";  
             </script>        
         ';
-        session_destroy();
-        die();
-    }
-    //session_destroy();
+    exit(); // Asegura que el script se detenga después de la redirección
+}
+
+$usuario_data = $_SESSION['usuario_data'];
+
+//session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,13 +29,14 @@
     <!--LINKS-->
     <link rel="stylesheet" href="recursos/css/font-awesome.min.css" type="text/css" />
     <script src="https://kit.fontawesome.com/a45e4463fd.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="recursos/css/perfil.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
+
 <body>
     <!--HEADER-->
     <?php
@@ -43,20 +49,16 @@
         </h4>
         <div class="text-right mt-3">
             <a href="php/cerrar_session.php" class="btn btn-primary">Cerrar Sesion</a>;
-            
+
         </div>
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list"
-                            href="#account-general">General</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Cambiar contraseña</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-info">Información</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-notifications">Notificaciones</a>
+                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Cambiar contraseña</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">Información</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notificaciones</a>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -67,21 +69,21 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" value="Dani">
-                                </div><div class="form-group">
+                                    <input type="text" class="form-control" value="<?php echo $usuario_data['usuario_nombre']; ?>">
+                                </div>
+                                <div class="form-group">
                                     <label class="form-label">Apellido Paterno</label>
-                                    <input type="text" class="form-control" value="Lopez">
+                                    <input type="text" class="form-control" value="<?php echo $usuario_data['usuario_apellidoP']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Apellido Materno</label>
-                                    <input type="text" class="form-control" value="Cruz">
+                                    <input type="text" class="form-control" value="<?php echo $usuario_data['usuario_apellidoM']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Correo</label>
-                                    <input type="text" class="form-control mb-1" value="ladani@gmail.com">
+                                    <input type="text" class="form-control mb-1" value="<?php echo $usuario_data['usuario_email']; ?>" readonly>
                                     <div class="alert alert-warning mt-3">
-                                        Tu correo aun no esta confirmado. Por favor ve tu bandeja de mensajes.<br>
-                                        <a href="javascript:void(0)">Reenviar confirmacion</a>
+                                        <!-- ... -->
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +110,7 @@
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control" >
+                                    <input type="date" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">País</label>
