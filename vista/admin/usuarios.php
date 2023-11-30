@@ -90,7 +90,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                 </div>
               </div>            
 
-              <div class="col-8 p-4" style="">
+              <div class="col-8 p-4">
               <table class="table table-striped table-hover" id="miTabla">
                 <thead class="table-dark">
                     <tr>
