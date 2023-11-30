@@ -1,6 +1,6 @@
 <?php
 // Obtener las categorías antes de mostrar el formulario
-$stmt_categorias = $db->query("SELECT categoria_id, categoria_nombre FROM categorias");
+$stmt_categorias = $db->query("SELECT * FROM categorias");
 $categorias = $stmt_categorias->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -72,9 +72,10 @@ $categorias = $stmt_categorias->fetchAll(PDO::FETCH_ASSOC);
 								<label class="control-label">Categoria:</label>
 							</div>&nbsp;
 							<div class="col-sm-10">
-								<select name="categoria" id="categoria" class="form-control">
+								<select name="producto_categoria_id" id="producto_categoria_id" class="form-control">
+									<option value="">Selecciona una categoria</option>
 									<?php foreach ($categorias as $categoria) : ?>
-										<option value="<?php echo $categoria['categoria_nombre']; ?>"><?php echo $categoria['categoria_nombre']; ?></option>
+										<option value="<?php echo $categoria['categoria_id']; ?>"><?php echo $categoria['categoria_nombre']; ?></option>
 									<?php endforeach; ?>
 								</select>
 							</div>

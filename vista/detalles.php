@@ -13,7 +13,7 @@ if ($row = mysqli_fetch_array($consulta)) {
   $producto_descripcion = $row['producto_descripcion'];
   $producto_precio = $row['producto_precio'];
 
-  $img = base64_encode($row['producto_imagen']);
+  $img = base64_encode($row['img']);
   $imagenSrc = "data:image/png;base64," . $img;
   $producto_descuento = $row['producto_descuento'];
   $precio_desc = $producto_precio - (($producto_precio * $producto_descuento) / 100);

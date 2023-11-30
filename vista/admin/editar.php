@@ -13,7 +13,7 @@ if (isset($_POST['edit'])) {
         $producto_precio = $_POST['producto_precio'];
         $producto_descuento = $_POST['producto_descuento'];
         $producto_stock = $_POST['producto_stock'];
-        $categoria = $_POST['categoria'];
+        $producto_categoria_id = $_POST['producto_categoria_id'];
 
         // Consulta para verificar si el nombre del producto ya existe, excluyendo el producto actual
         $stmt = $db->prepare("SELECT COUNT(*) as count FROM productos WHERE producto_nombre = :producto_nombre AND producto_id != :producto_id");
@@ -24,7 +24,7 @@ if (isset($_POST['edit'])) {
             $_SESSION['message'] = 'El nombre del producto ya existe';
         } else {
             // Actualizar los datos del producto en la base de datos
-            $sql = "UPDATE productos SET producto_nombre = :producto_nombre, producto_descripcion = :producto_descripcion, producto_precio = :producto_precio, producto_descuento = :producto_descuento, producto_stock = :producto_stock, categoria = :categoria WHERE producto_id = :producto_id";
+            $sql = "UPDATE productos SET producto_nombre = :producto_nombre, producto_descripcion = :producto_descripcion, producto_precio = :producto_precio, producto_descuento = :producto_descuento, producto_stock = :producto_stock, producto_categoria_id = :producto_categoria_id WHERE producto_id = :producto_id";
             $stmt = $db->prepare($sql);
             $stmt->execute(array(
                 ':producto_nombre' => $producto_nombre,
@@ -32,7 +32,7 @@ if (isset($_POST['edit'])) {
                 ':producto_precio' => $producto_precio,
                 ':producto_descuento' => $producto_descuento,
                 ':producto_stock' => $producto_stock,
-                ':categoria' => $categoria,
+                ':producto_categoria_id' => $producto_categoria_id,
                 ':producto_id' => $producto_id
             ));
 
@@ -59,4 +59,3 @@ if (isset($_POST['edit'])) {
 }
 
 header('location: productos.php');
-?>

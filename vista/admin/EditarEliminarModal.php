@@ -64,9 +64,9 @@ $categorias = $stmt_categorias->fetchAll(PDO::FETCH_ASSOC);
 								<label class="control-label">Categoria:</label>
 							</div>&nbsp;
 							<div class="col-sm-10">
-								<select name="categoria" id="categoria" class="form-control">
+								<select name="producto_categoria_id" id="producto_categoria_id" class="form-control">
 									<?php foreach ($categorias as $categoria) : ?>
-										<option value="<?php echo $categoria['categoria_nombre']; ?>"><?php echo $categoria['categoria_nombre']; ?></option>
+										<option value="<?php echo $categoria['categoria_id']; ?>"><?php echo $categoria['categoria_nombre']; ?></option>
 									<?php endforeach; ?>
 								</select>
 							</div>

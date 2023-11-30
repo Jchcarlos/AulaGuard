@@ -122,7 +122,6 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                             <td><?= $datos->usuario_telefono ?></td>
                             <td><?= $datos->usuario_rol ?></td>
                             <td>
-                                <a href="../../controlador/editar_usuario.php?id=<?= $datos->usuario_id ?>" class="btn btn-small btn-primary">Editar</a>
                                 <a href="../../controlador/eliminar_usuario.php?id=<?= $datos->usuario_id ?>" class="btn btn-small btn-danger">Eliminar</a>
                             </td>
                         </tr>

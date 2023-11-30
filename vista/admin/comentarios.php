@@ -13,7 +13,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   exit();
 }
 
-include "../../modelo/conexion.php"; 
+include "../../modelo/conexion.php";
 
 // Consulta para obtener los comentarios
 $query = "SELECT * FROM comentarios";
@@ -74,29 +74,27 @@ $result = mysqli_query($conexion, $query);
             </div>
             <!-- content-wrapper ends -->
             <main>
-            <h1>Comentarios</h1> <br><br>
-            <a href="agregarCategoria.php" class="btn btn-primary" data-toggle="modal" style="margin-bottom: 8px;"><span class="fa fa-plus"></span> Nuevo</a>
-            <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
-  <thead>
-    <th>ID Comentario</th>
-    <th>Tipo</th>
-    <th>Email</th>
-    <th>Comentario</th>
-  </thead>
-  <tbody>
-    <?php
-    // Iteración sobre los comentarios
-    while ($row = mysqli_fetch_assoc($result)) {
-      echo "<tr>";
-      echo "<td>" . $row['comentario_id'] . "</td>";
-      echo "<td>" . $row['comentario_tipo'] . "</td>";
-      echo "<td>" . $row['comentario_email'] . "</td>";
-      echo "<td>" . $row['comentario_comentario'] . "</td>";
-      
-    }
-    ?>
-  </tbody>
-</table>
+              <h1>Comentarios</h1> <br><br>
+              <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
+                <thead>
+                  <th>ID Comentario</th>
+                  <th>Tipo</th>
+                  <th>Email</th>
+                  <th>Comentario</th>
+                </thead>
+                <tbody>
+                  <?php
+                  // Iteración sobre los comentarios
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['comentario_id'] . "</td>";
+                    echo "<td>" . $row['comentario_tipo'] . "</td>";
+                    echo "<td>" . $row['comentario_email'] . "</td>";
+                    echo "<td>" . $row['comentario_comentario'] . "</td>";
+                  }
+                  ?>
+                </tbody>
+              </table>
             </main>
             <!-- partial:partials/_footer.html -->
             <?php

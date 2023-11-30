@@ -52,7 +52,6 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
 				<a href="deleteC.php?categoria_id=<?php echo $row['categoria_id']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span> Si</a>
-				
 			</div>
 		</div>
 	</div>

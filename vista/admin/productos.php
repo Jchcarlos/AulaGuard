@@ -112,7 +112,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                         $database = new ConectarDB();
                         $db = $database->open();
                         try {
-                          $sql = 'SELECT * FROM productos';
+                          $sql = 'SELECT * FROM productos p INNER JOIN categorias c ON p.producto_categoria_id = c.categoria_id';
                           foreach ($db->query($sql) as $row) {
                         ?>
                             <tr>
@@ -123,7 +123,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                               <td><?php echo $row['producto_precio']; ?></td>
                               <td><?php echo $row['producto_descuento']; ?></td>
                               <td><?php echo $row['producto_stock']; ?></td>
-                              <td><?php echo $row['categoria']; ?></td>
+                              <td><?php echo $row['categoria_nombre']; ?></td>
                               <td><a href="#edit_<?php echo $row['producto_id']; ?>" class="btn btn-success btn-sm" data-toggle="modal"><span class="fa fa-edit"></span> Editar</a>
                                 <a href="#delete_<?php echo $row['producto_id']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"><span class="fa fa-trash"></span> Eliminar</a>
                               </td>

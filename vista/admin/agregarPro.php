@@ -15,7 +15,7 @@ if (isset($_POST['add'])) {
         $producto_precio = $_POST['producto_precio'];
         $producto_descuento = $_POST['producto_descuento'];
         $producto_stock = $_POST['producto_stock'];
-        $categoria = $_POST['categoria'];
+        $producto_categoria_id = $_POST['producto_categoria_id'];
 
         // Consulta para verificar si el nombre del producto ya existe
         $stmt = $db->prepare("SELECT COUNT(*) as count FROM productos WHERE producto_nombre = :producto_nombre");
@@ -26,8 +26,8 @@ if (isset($_POST['add'])) {
             $_SESSION['message'] = 'El nombre del producto ya existe.';
         } else {
             // Insertar el nuevo producto en la base de datos
-            $stmt = $db->prepare("INSERT INTO productos (producto_nombre, producto_descripcion, img, producto_precio, producto_descuento, producto_stock, categoria)
-            VALUES (:producto_nombre, :producto_descripcion, :foto, :producto_precio, :producto_descuento, :producto_stock, :categoria)");
+            $stmt = $db->prepare("INSERT INTO productos (producto_nombre, producto_descripcion, img, producto_precio, producto_descuento, producto_stock, producto_categoria_id)
+            VALUES (:producto_nombre, :producto_descripcion, :foto, :producto_precio, :producto_descuento, :producto_stock, :producto_categoria_id)");
 
             $inserted = $stmt->execute(array(
                 ':producto_nombre' => $producto_nombre,
@@ -36,7 +36,7 @@ if (isset($_POST['add'])) {
                 ':producto_precio' => $producto_precio,
                 ':producto_descuento' => $producto_descuento,
                 ':producto_stock' => $producto_stock,
-                ':categoria' => $categoria
+                ':producto_categoria_id' => $producto_categoria_id
             ));
 
             $_SESSION['message'] = $inserted ? 'Producto agregado correctamente' : 'Algo salió mal, no se pudo agregar el producto';
