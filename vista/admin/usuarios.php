@@ -20,7 +20,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AulaGuuard </title>
+  <title>Usuarios - Admin Aulaguard</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../recursos/">
   <link rel="stylesheet" href="../recursos/vendors/feather/feather.css">
@@ -90,7 +90,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                 </div>
               </div>            
 
-              <div class="col-8 p-4">
+              <div class="col-8 p-4" style="">
               <table class="table table-striped table-hover" id="miTabla">
                 <thead class="table-dark">
                     <tr>
@@ -229,12 +229,6 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             // Obtén los datos del formulario
             const nombre = document.getElementById("nombre").value;
             const apellidoP = document.getElementById("apellidoP").value;
-            // Agrega más campos según corresponda
-
-            // Realiza una solicitud AJAX para enviar los datos al servidor y agregar el usuario en la base de datos
-            // Aquí debes implementar la lógica para agregar el usuario en el servidor
-
-            // Luego, puedes actualizar la tabla de usuarios con los nuevos datos o recargar la página para ver al usuario agregado
 
             // Ejemplo de una solicitud AJAX con Fetch API (puedes usar jQuery u otra librería si lo prefieres)
             fetch("/ruta/para/agregar/usuario.php", {
@@ -257,12 +251,8 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
         });
       </script>
 
-
-
-
       <!-- End custom js for this page-->
 </body>
-
 </html>
 
 
