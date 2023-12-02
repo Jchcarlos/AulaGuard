@@ -37,7 +37,6 @@
           <a class="dropdown-item" href="../vista/php/cerrar_session.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Cerrar Sesion</a>
         </div>
       </li>
-
     </div>
   </nav>
 </header>

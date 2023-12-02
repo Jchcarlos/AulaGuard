@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario_data'])) {
     echo '
             <script>
                 alert("Por favor debes iniciar sesion");
-                window.location = "acerca.php";  
+                window.location = "../index.php";  
             </script>        
         ';
     exit(); // Asegura que el script se detenga después de la redirección

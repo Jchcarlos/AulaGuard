@@ -45,9 +45,24 @@
 
       <!--ACTIONS-->
       <div class="nav_actions">
-        <a href="carrito.php?id_usuario=1"><span><i class="ri-shopping-cart-2-fill"></i></span></a>
-        <a href="login.php"><span><i class="ri-user-fill"></i></span></a>
-      </div>
+      <a href="vista/carrito.php"><span><i class="ri-shopping-cart-2-fill"></i></span></a>
+
+      <li class="nav-item dropdown d-none d-lg-block user-dropdown ">
+
+        <a href="vista/login.php" class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <span><i class="ri-user-fill"></i></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+          <div class="dropdown-header text-center">
+            <p class="mb-1 mt-3 font-weight-semibold">Bienvenido</p>
+          </div>
+          <a class="dropdown-item" href="perfil.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Ver Perfil</a>
+          <a class="dropdown-item" href="../vista/login.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Iniciar sesion</a>
+          <a class="dropdown-item" href="../vista/php/cerrar_session.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Cerrar Sesion</a>
+        </div>
+      </li>
+    </div>
     </nav>
   </header>
   <!-- Seccion de productos -->
