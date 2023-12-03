@@ -20,8 +20,9 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AulaGuuard </title>
+  <title>Comentarios - Admin AulaGuuard </title>
   <!-- plugins:css -->
+  <link href="bootstrap.minC.css" rel="stylesheet">
   <link rel="stylesheet" href="../recursos/">
   <link rel="stylesheet" href="../recursos/vendors/feather/feather.css">
   <link rel="stylesheet" href="../recursos/vendors/mdi/css/materialdesignicons.min.css">
@@ -36,6 +37,8 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../recursos/css/vertical-layout-light/style.css">
+  <script src="https://kit.fontawesome.com/a45e4463fd.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
   <!-- endinject -->
 </head>
 
@@ -68,41 +71,92 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             </div>
             <!-- content-wrapper ends -->
             <main>
-            <h1>Comentarios</h1> <br><br>
-            <a href="agregarCategoria.php" class="btn btn-primary" data-toggle="modal" style="margin-bottom: 8px;"><span class="fa fa-plus"></span> Nuevo</a>
-              <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
-                <thead>
-                  <th>ID Categoria</th>
-                  <th>Nombre</th>
-                  <th>Nombre</th>
-                  <th>Acciones</th>
-                </thead>
-                <tbody>
+              <div class="container">
+                <h1 class="page-header text-center">Comentarios</h1>
+                <div class="row">
+                  <div class="col-sm-12">
 
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="editarCategoria.php?categoria_id=<?php echo $resultado["categoria_id"]?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span> Editar</a>
-                    <a href="eliminarCategoria.php?categoria_id=<?php echo $resultado["categoria_id"]?>" class="btn btn-danger btn-sm" ><span class="fa fa-trash"></span> Eliminar</a>
-                  </td>
-                  </tr>
-                </tbody>
-              </table>
+                    <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
+                      <thead>
+                        <th>ID</th>
+                        <th>TIPO</th>
+                        <th>EMAIL</th>
+                        <th>COMENTARIO</th>
+                        <th>ACCIONES</th>
+                      </thead>
+                      <tbody>
+                        <?php
+                        require("../../modelo/conexion1.php");
+                        $database = new ConectarDB();
+                        $db = $database->open();
+                        try {
+                          $sql = 'SELECT * FROM comentarios';
+                          foreach ($db->query($sql) as $row) {
+                        ?>
+                            <tr>
+                              <td><?php echo $row['comentario_id']; ?></td>
+                              <td><?php echo $row['comentario_tipo']; ?></td>
+                              <td><?php echo $row['comentario_email']; ?></td>
+                              <td><?php echo $row['comentario_comentario']; ?></td>
+                              <td>
+                                <a href="#deleteComment_<?php echo $row['comentario_id']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"><span class="fa fa-trash"></span> Eliminar</a>
+                              </td>
+                              </td>
+                              <!-- Eliminar -->
+                              <div class="modal fade" id="deleteComment_<?php echo $row['comentario_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog " role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <center>
+                                        <h4 class="modal-title">Borrar comentario </h4>
+                                      </center>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                      <p class="text-center">¿Estas seguro en borrar los datos de? </p>
+                                      <h2 class="text-center"> <?php echo $row['comentario_email']; ?></h2>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+                                      <a href="deleteComment.php?comentario_id=<?php echo $row['comentario_id']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span> Si</a>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </tr>
+
+                        <?php
+
+                          }
+                        } catch (PDOException $e) {
+                          echo 'Hay probleas con la conexion : ' . $e->getmessage();
+                        }
+                        $database->close();
+
+                        ?>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+
+              </div>
+              <?php include('agregarCategoria.php'); ?>
             </main>
-            <!-- partial:partials/_footer.html -->
-            <?php
-            include "../modulos/footerDash.php";
-            ?>
-            <!-- partial -->
           </div>
-          <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
 
       <!-- plugins:js -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="bootstrap.minC.js"></script>
       <script src="../recursos/vendors/js/vendor.bundle.base.js"></script>
       <!-- endinject -->
       <!-- Plugin js for this page -->
@@ -123,5 +177,4 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
       <script src="../recursos/js/Chart.roundedBarCharts.js"></script>
       <!-- End custom js for this page-->
 </body>
-
 </html>
