@@ -84,9 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $usuario_autenticado) {
                             <!--FORMULARIO-->
                             <form action="../controlador/ctrlComentario.php" method="POST">
                                 <select name="tipo">
-                                    <option value="Buena">Buena</option>
-                                    <option value="Regular">Regular</option>
-                                    <option value="Mala">Mala</option>
+                                    <option value="Pregunta y Consulta">Pregunta y Consulta</option>
+                                    <option value="Agradecimiento">Agradecimiento</option>
+                                    <option value="Sugerencia">Sugerencia</option>
+                                    <option value="Quejas o Problemas">Quejas o Problemas</option>
+                                    <option value="Denuncia">Denuncia</option>
+                                    <option value="Soporte tecnico">Soporte tecnico</option>
+                                    <option value="Otro">Otro</option>
                                 </select>
                                 <br>
                                 <input type="email" name="email" placeholder="Correo electrónico">
@@ -114,6 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $usuario_autenticado) {
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
 </body>
 </html>
+
