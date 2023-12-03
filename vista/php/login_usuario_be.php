@@ -18,6 +18,7 @@
         if ($stored_password === $usuario_password) {
            // Almacena todas las variables en un arreglo de sesión
             $usuario_data = array(
+                'usuario_id' => $row['usuario_id'],
                 'usuario_nombre' => $row['usuario_nombre'],
                 'usuario_apellidoP' => $row['usuario_apellidoP'],
                 'usuario_apellidoM' => $row['usuario_apellidoM'],
@@ -26,11 +27,11 @@
                 'usuario_telefono' => $row['usuario_telefono'],
                 'usuario_rol' => $row['usuario_rol']
             );
-
+                
             // Muestra algunas variables para depuración
             var_dump($usuario_data);
             var_dump($_SESSION);
-
+            
             // Asigna el arreglo de sesión
             $_SESSION['usuario_data'] = $usuario_data;
 
@@ -58,4 +59,5 @@
         ';
     }
 ?>
+
 
