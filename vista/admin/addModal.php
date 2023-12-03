@@ -40,7 +40,7 @@ $categorias = $stmt_categorias->fetchAll(PDO::FETCH_ASSOC);
 								<label class="control-label">Foto:</label>
 							</div>&nbsp;
 							<div class="col-sm-10">
-								<input type="file" class="form-control" name="img" required>
+								<input type="file" class="form-control" name="producto_imagen" required>
 							</div>
 						</div>
 						<div class="row form-group">

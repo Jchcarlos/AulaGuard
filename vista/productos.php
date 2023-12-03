@@ -45,24 +45,9 @@
 
       <!--ACTIONS-->
       <div class="nav_actions">
-      <a href="vista/carrito.php"><span><i class="ri-shopping-cart-2-fill"></i></span></a>
-
-      <li class="nav-item dropdown d-none d-lg-block user-dropdown ">
-
-        <a href="vista/login.php" class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-          <span><i class="ri-user-fill"></i></span>
-        </a>
-
-        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-          <div class="dropdown-header text-center">
-            <p class="mb-1 mt-3 font-weight-semibold">Bienvenido</p>
-          </div>
-          <a class="dropdown-item" href="perfil.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Ver Perfil</a>
-          <a class="dropdown-item" href="../vista/login.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Iniciar sesion</a>
-          <a class="dropdown-item" href="../vista/php/cerrar_session.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Cerrar Sesion</a>
-        </div>
-      </li>
-    </div>
+        <a href="carrito.php?id_usuario=1"><span><i class="ri-shopping-cart-2-fill"></i></span></a>
+        <a href="login.php"><span><i class="ri-user-fill"></i></span></a>
+      </div>
     </nav>
   </header>
   <!-- Seccion de productos -->
@@ -99,7 +84,7 @@
               <div class="card h-100">
                 <!-- Sale badge-->
                 <!-- Product image-->
-                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode(($row['img'])) . '" class="card-img-top">'; ?>
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode(($row['producto_imagen'])) . '" class="card-img-top">'; ?>
                 <!-- Product details-->
                 <div class="card-body p-4">
                   <div class="text-center">

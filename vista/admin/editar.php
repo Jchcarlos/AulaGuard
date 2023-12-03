@@ -44,7 +44,7 @@ if (isset($_POST['edit'])) {
             if (!empty($nueva_imagen)) {
                 $nueva_imagen_contenido = file_get_contents($nueva_imagen);
 
-                $sql = "UPDATE productos SET img = :nueva_imagen WHERE producto_id = :producto_id";
+                $sql = "UPDATE productos SET producto_imagen = :nueva_imagen WHERE producto_id = :producto_id";
                 $stmt = $db->prepare($sql);
                 $stmt->execute(array(':nueva_imagen' => $nueva_imagen_contenido, ':producto_id' => $producto_id));
             }

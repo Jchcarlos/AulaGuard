@@ -15,7 +15,7 @@
               ?>
                 <div class="card h-100">
                     <!-- Product image-->
-                    <?php echo '<img src="data:image/jpeg; base64,' . base64_encode(($row['img'])) . '" class="card-img-top">'; ?>
+                    <?php echo '<img src="data:image/jpeg; base64,' . base64_encode(($row['producto_imagen'])) . '" class="card-img-top">'; ?>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">

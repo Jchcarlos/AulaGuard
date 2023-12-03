@@ -2,8 +2,10 @@
 	<div class="modal-dialog " role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<center> <h4 class="modal-title">Agregar Categoria </h4></center>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+				<center>
+					<h4 class="modal-title">Agregar Categoria </h4>
+				</center>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -19,10 +21,10 @@
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="categoria_nombre">
 							</div>
-						</div>				
+						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
-							<button type="submit" name="add" class="btn btn-primary" ><span class="fa fa-save"></span> Guardar</button>
+							<button type="submit" name="add" class="btn btn-primary"><span class="fa fa-save"></span> Guardar</button>
 						</div>
 					</form>
 				</div>

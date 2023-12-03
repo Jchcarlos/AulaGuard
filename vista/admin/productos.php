@@ -119,7 +119,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                               <td><?php echo $row['producto_id']; ?></td>
                               <td><?php echo $row['producto_nombre']; ?></td>
                               <td><?php echo $row['producto_descripcion']; ?></td>
-                              <?php echo '<td> <img src="data:image/jpeg; base64,' . base64_encode(($row["img"])) . '"/ width= "60px" heigth= "60px"></td>'; ?>
+                              <?php echo '<td> <img src="data:image/jpeg; base64,' . base64_encode(($row["producto_imagen"])) . '"/ width= "60px" heigth= "60px"></td>'; ?>
                               <td><?php echo $row['producto_precio']; ?></td>
                               <td><?php echo $row['producto_descuento']; ?></td>
                               <td><?php echo $row['producto_stock']; ?></td>

@@ -76,7 +76,7 @@ $categorias = $stmt_categorias->fetchAll(PDO::FETCH_ASSOC);
 								<label class="control-label"> Foto: </label>
 							</div>&nbsp;
 							<div class="col-sm-10">
-								<?php echo '<img src="data:image/jpeg; base64,' . base64_encode(($row["img"])) . '"/ width= "60px" heigth= "60px"></td>'; ?><br>
+								<?php echo '<img src="data:image/jpeg; base64,' . base64_encode(($row["producto_imagen"])) . '"/ width= "60px" heigth= "60px"></td>'; ?><br>
 								<input type="file" class="form-control" name="nueva_imagen">
 								<input type="hidden" name="imagen_actual">
 							</div>

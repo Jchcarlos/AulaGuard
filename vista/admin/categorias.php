@@ -38,7 +38,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   <!-- inject:css -->
   <link rel="stylesheet" href="../recursos/css/vertical-layout-light/style.css">
   <script src="https://kit.fontawesome.com/a45e4463fd.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
   <!-- endinject -->
 </head>
 
@@ -71,69 +71,70 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             </div>
             <!-- content-wrapper ends -->
             <main>
-    <div  class="container">
-      <h1 class="page-header text-center">Categorias</h1>
-      <div class="row">
-        <div class="col-sm-12">
+              <div class="container">
+                <h1 class="page-header text-center">Categorias</h1>
+                <div class="row">
+                  <div class="col-sm-12">
 
-          <a href="#addNew" class="btn btn-primary" data-toggle="modal" style="margin-bottom: 8px;" ><span class="fa fa-plus"></span> Nuevo</a>
-        
-           <?php 
-              if (isset($_SESSION['message'])) {
-                ?>
-                <div class="alert alert-dismissible alert-success" style="margin-top: 20px;">
-                  <button type="button" class="close" data-dismiss="alert" >
-                    &times;
-                  </button>
-                  <?php echo $_SESSION['message']; ?>
+                    <a href="#addNew" class="btn btn-primary" data-toggle="modal" style="margin-bottom: 8px;"><span class="fa fa-plus"></span> Nuevo</a>
+
+                    <?php
+                    if (isset($_SESSION['message'])) {
+                    ?>
+                      <div class="alert alert-dismissible alert-success" style="margin-top: 20px;">
+                        <button type="button" class="close" data-dismiss="alert">
+                          &times;
+                        </button>
+                        <?php echo $_SESSION['message']; ?>
+                      </div>
+
+                    <?php
+                      unset($_SESSION['message']);
+                    }
+                    ?>
+                    <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
+                      <thead>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>ACCIONES</th>
+                      </thead>
+                      <tbody>
+                        <?php
+                        require("../../modelo/conexion1.php");
+                        $database = new ConectarDB();
+                        $db = $database->open();
+                        try {
+                          $sql = 'SELECT * FROM categorias';
+                          foreach ($db->query($sql) as $row) {
+                        ?>
+                            <tr>
+                              <td><?php echo $row['categoria_id']; ?></td>
+                              <td><?php echo $row['categoria_nombre']; ?></td>
+                              <td><a href="#editC_<?php echo $row['categoria_id']; ?>" class="btn btn-success btn-sm" data-toggle="modal"><span class="fa fa-edit"></span> Editar</a>
+                                <a href="#deleteC_<?php echo $row['categoria_id']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"><span class="fa fa-trash"></span> Eliminar</a>
+                              </td>
+                              <?php include('EditarEliminarCategoria.php'); ?>
+                            </tr>
+
+                        <?php
+
+                          }
+                        } catch (PDOException $e) {
+                          echo 'Hay probleas con la conexion : ' . $e->getmessage();
+                        }
+                        $database->close();
+
+                        ?>
+
+                      </tbody>
+                    </table>
+                  </div>
+
                 </div>
 
-                <?php 
-                unset( $_SESSION['message']);              
-              }
-           ?>
-        <table class="table table-bordered table-striped"  id="MiAgenda" style="margin-top:20px;" >
-            <thead>
-              <th>ID</th>
-              <th>NOMBRE</th>
-              <th>ACCIONES</th>
-            </thead>
-            <tbody>
-              <?php 
-                require ("../../modelo/conexion1.php");
-                $database = new ConectarDB();
-                $db = $database->open();
-                try {
-                  $sql = 'SELECT * FROM categorias';
-                  foreach ($db->query($sql) as $row) {
-                  ?>
-                  <tr>
-                      <td><?php echo $row['categoria_id']; ?></td>
-                      <td><?php echo $row['categoria_nombre']; ?></td>
-                      <td><a href="#editC_<?php echo $row['categoria_id']; ?>" class="btn btn-success btn-sm" data-toggle="modal"><span class="fa fa-edit"></span> Editar</a> 
-                      <a href="#deleteC_<?php echo $row['categoria_id']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"><span class="fa fa-trash"></span> Eliminar</a>  </td>
-                      <?php include('EditarEliminarCategoria.php'); ?>
-                  </tr>
-
-                  <?php
-
-                  }
-                } catch (PDOException $e) {
-                  echo 'Hay probleas con la conexion : '.$e->getmessage();
-                }
-                $database->close();
-
-             ?>
-             
-            </tbody>
-        </table>
-     </div>
-
-      </div>
-
-    </div><!-- /.container -->
-    <?php include('agregarCategoria.php'); ?>
-    </main>
+              </div><!-- /.container -->
+              <?php include('agregarCategoria.php'); ?>
+            </main>
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
@@ -144,7 +145,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
 
       <!-- plugins:js -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="bootstrap.minC.js"></script>
+      <script src="bootstrap.minC.js"></script>
       <script src="../recursos/vendors/js/vendor.bundle.base.js"></script>
       <!-- endinject -->
       <!-- Plugin js for this page -->
