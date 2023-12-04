@@ -119,7 +119,7 @@
                 <!-- Product actions-->
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                   <div class="text-center">
-                  <input type="text" name="productoId" value="<?php echo $producto_id ?>">
+                  
                     <a class="btn btn-outline-dark mt-auto" href="detalles.php?producto_id=<?php echo $row['producto_id']; ?>&id_usuario=1">Comprar Ahora</a>
                   </div>
                 </div>

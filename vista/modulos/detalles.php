@@ -50,55 +50,6 @@
       </div>
     </div>
 
-
-
-
-
-
-    <!--<div class="container-additional-information">
-          <div class="title-additional-information">
-            <h4>Especificaciones</h4>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="text-additional-information hidden">
-            <p>
-              Vincúlala a tu módem por Wi-Fi <br />
-              Comparte el control con otros usuarios<br />
-              Accede con:<br />
-              Huella digital<br />
-              Llaves <br />
-              Códigos numéricos <br />
-              Tarjetas RFID <br />
-              Genera códigos y envíalos por mensaje<br />
-              Puedes crear contraseñas temporales <br />
-              Lleva registro de aperturas <br />
-              Controla los usuarios registrados para abrir <br />
-              Tiene alarma por intentos fallidos <br />
-              Tiene switch para activar el seguro desde el interior <br />
-              Incorpora puerto de alimentación de emergencia <br />
-              Incluye 2 llaves y 4 tarjetas RFID <br />
-            </p>
-          </div>
-        </div>
-
-        <div class="container-reviews">
-          <div class="title-reviews">
-            <h4>Descripción tecnica</h4>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="text-reviews hidden">
-            <p>
-              Alimentación: 6 Vcc (4 x AAA) <br />
-              Cantidad de huellas dactilares: 100 <br />
-              Back set ajustable: 60 / 70 mm <br />
-              Espesor de puerta: 35 a 50 mm <br />
-              Cerrojo antisegueta: 12 mm <br />
-              Capacidad de usuarios: 300 (100 huellas digitales + 100 tarjeta IC
-              + 100 contraseñas) <br />
-            </p>
-          </div>
-        </div>-->
-
     <div class="container-social">
       <span>Compartir</span>
       <div class="container-buttons-social">
@@ -166,11 +117,7 @@
         </div>
     </div>
 </div>
-      </div>
-      <?php
-          include "./modulos/View_Puntuaciones.php";
-          ?>
-    </div>
+
   </div>
 
   </div>
