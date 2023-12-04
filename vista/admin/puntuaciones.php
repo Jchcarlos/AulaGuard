@@ -78,21 +78,23 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                   return respuesta;
                 }
               </script>
-              <h1>Lista Puntuaciones</h1><br><br>
+              <h1 class="page-header text-center" >Puntuaciones</h1><br><br>
               <?php
               include "../../modelo/conexion.php";
               include "../../controlador/eliminar_puntuacion.php";
               ?>
-              <table>
-                <thead class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
+              <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:5px;">
+                <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Fecha</th>
-                    <th>ID Venta</th>
-                    <th>ID Usuario</th>
-                    <th>ID Producto</th>
-                    <th>Calificación</th>
-                    <th>Descripción</th>
+                    <th>ID PUNTUACION</th>
+                    <th>ID USUARIO</th>
+                    <th>NOMBRE</th>
+                    <th>ID VENTA</th>
+                    <th>ID PRODUCTO</th>
+                    <th>CALIFICACIÓN</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>FECHA</th>
+                    <th>Eliminar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -103,29 +105,33 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                   while ($datos = $sql->fetch_object()) { ?>
                     <tr>
                       <td>
-                        <?= $datos->puntuacion_id ?>
+                        <?= $datos->review_id ?>
                       </td>
                       <td>
-                        <?= $datos->puntuacion_fecha ?>
+                        <?= $datos->id_product ?>
                       </td>
                       <td>
-                        <?= $datos->venta_id ?>
+                        <?= $datos->user_name ?>
                       </td>
                       <td>
-                        <?= $datos->usuario_id ?>
+                        <?= $datos->id_product ?>
                       </td>
                       <td>
-                        <?= $datos->producto_id ?>
+                        <?= $datos->id_product ?>
                       </td>
                       <td>
-                        <?= $datos->puntuacion_calificacion ?>
+                        <?= $datos->user_rating ?>
                       </td>
                       <td>
-                        <?= $datos->puntuacion_descripcion ?>
+                        <?= $datos->user_review ?>
+                      </td>
+                      <td>
+                        <?= $datos->datetime ?>
                       </td>
                       <td>
                         <!-- Se está enviando el ID de la puntuación en una variable ID y ese id se debe capturar en el controlador -->
-                        <a onclick="return eliminar()" href="../admin/puntuaciones.php?id=<?= $datos->puntuacion_id ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a onclick="return eliminar()" href="../admin/puntuaciones.php?id=<?= $datos->review_id ?>"  class="btn btn-danger btn-sm" data-toggle="modal"><span class="fa fa-trash"></span> Eliminar</a>
+                              </td>
                       </td>
                     </tr>
                   <?php }
@@ -168,5 +174,4 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
     <!-- End custom js for this page-->
 
 </body>
-
 </html>
