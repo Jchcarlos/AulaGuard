@@ -66,34 +66,15 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                 </div>
               </div>
             </div>
+            
             <!-- content-wrapper ends -->
             <main>
-            
-            <?php
-            /*$fechaActual = new DateTime();
-            $fechaActual->sub(new DateInterval('P1D'));
-            $fechaNueva = $fechaActual->format('d-m-Y');*/
+          <?php
             include "../../modelo/instaladores.php";
-            $id=$_GET['idV'];
-            $idCliente=$_GET['idC'];
-            ?>
-
-    <form action="../../controlador/Control.php" method="post">
-
-    <input type="datetime-local" class="form-control" name="fecha" id="fecha">
-        <br>
-        <input type="hidden" name="idVenta" value="<?php print $id ?>">
-        <input type="hidden" name="status" value="Pendiente">
-        
-        <input type="hidden" name="idCliente" value="<?php print $idCliente ?>">
-       
-        
-        <button type="submit" name="RegistrarCita" class="btn btn-primary">Registrar cita</button>
-        
-    </form>
-
-
-            </main>
+            $citas= new Instalador();
+            $citas->citas();
+          ?>
+          </main>
             <!-- partial:partials/_footer.html -->
             <?php
             include "../modulos/footerDash.php";

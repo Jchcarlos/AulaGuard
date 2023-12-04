@@ -22,6 +22,7 @@
                 <li class="nav-item"><a class="nav-link" href="productos.php">Productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="ventas.php">Ventas</a></li>
                 <li class="nav-item"><a class="nav-link" href="citas.php">Citas</a></li>
+                <li class="nav-item"><a class="nav-link" href="instalacion.php">Instalacion</a></li>
               </ul>
             </div>
           </li>

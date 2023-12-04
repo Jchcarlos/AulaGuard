@@ -75,9 +75,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             ?>
             </main>
             <!-- partial:partials/_footer.html -->
-            <?php
-            include "../modulos/footerDash.php";
-            ?>
+           
             <!-- partial -->
           </div>
           <!-- main-panel ends -->

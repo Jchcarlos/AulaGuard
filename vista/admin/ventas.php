@@ -66,10 +66,15 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                 </div>
               </div>
             </div>
+            
             <!-- content-wrapper ends -->
             <main>
-
-            </main>
+          <?php
+            include "../../modelo/instaladores.php";
+            $citas= new Instalador();
+            $citas->ventas();
+          ?>
+          </main>
             <!-- partial:partials/_footer.html -->
             <?php
             include "../modulos/footerDash.php";

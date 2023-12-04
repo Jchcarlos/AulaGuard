@@ -7,7 +7,8 @@ class Direccion{
     private $colonia;
     private $codigoPos;
     private $ciudad;
-    public function inicializar($calle, $numeroIn, $numeroEx, $estado, $colonia, $codigoPos, $ciudad){
+    private $idCliente;
+    public function inicializar($calle, $numeroIn, $numeroEx, $estado, $colonia, $codigoPos, $ciudad,  $idCliente){
         $this->calle=$calle;
         $this->numeroIn=$numeroIn;
         $this->numeroEx=$numeroEx;
@@ -15,6 +16,7 @@ class Direccion{
         $this->colonia=$colonia;
         $this->codigoPos=$codigoPos;
         $this->ciudad=$ciudad;
+        $this->idCliente=$idCliente;
     }
 
     public function conectarBD(){
@@ -28,25 +30,24 @@ class Direccion{
 
     public function agregarDireccion(){
         $con=$this->conectarBD();
-        $query = "INSERT INTO direcciones (direccion_calle, direccion_numInt, direccion_numExt, direccion_estado, direccion_colonia, direccion_codigoPost, 	direccion_ciudad) VALUES ('$this->calle','$this->numeroIn','$this->numeroEx','$this->estado','$this->colonia','$this->codigoPos','$this->ciudad')";
+        $query = "INSERT INTO direcciones (direccion_calle, direccion_numInt, direccion_numExt, direccion_estado, direccion_colonia, direccion_codigoPost, 	direccion_ciudad, id_usuario) VALUES ('$this->calle','$this->numeroIn','$this->numeroEx','$this->estado','$this->colonia','$this->codigoPos','$this->ciudad', '$this->idCliente')";
         mysqli_query($con, $query) or die(mysqli_error($con));
     }
 
-    public function mostrar(){
+    public function mostrar($id){
         //$idsession
         $con=$this->conectarBD();
-        $query =mysqli_query($con, "SELECT * FROM direcciones") or die (mysqli_error($con));
-                                                        //where id_cliente='$idsession'
+        $query =mysqli_query($con, "SELECT * FROM direcciones WHERE id_usuario=$id") or die (mysqli_error($con));
         foreach($query as $reg){
            print'<div class="card mar" style="width: 18rem; ">
         <div class="card-body">
             <h5 class="card-title">Calle: '.$reg['direccion_calle'].'</h5>
             <p class="text">Numero Exterior: '.$reg['direccion_numExt'].'<br>C.P :'.$reg['direccion_codigoPost'].'</p>
             <br>
-            <form method="POST" action="../vista/direccionM.php?idD='.$reg['direccion_id'].'"><button type="submit" class="btn btn-warning">Modificar</button> </form> <a href="../Vista/Control.php?idB='.$reg['direccion_id'].'"><button class="btn btn-danger">Borrar</button></a>
+            <form method="POST" action="direccionM.php?idD='.$reg['direccion_id'].'"><button type="submit" class="btn btn-warning">Modificar</button> </form> <a href="borrar.php?idB='.$reg['direccion_id'].'"><button class="btn btn-danger">Borrar</button></a>
         </div>
-        </div>';                                                                                                                                                                                                                                             print "<div>";
-           // <form method="POST" action="../Control/crud_admin.php"> <button class="btn-chido" name="borrar" value="'.$reg['id_producto'].'"> Eliminar </button></td><td class="espe"><button class="btn-chido"><a href="../Control/di.php?idP='.$reg['id_producto'].'">Modificar </a></button>
+        </div>';                                                                                                                                                                                                                                             
+        print "<div>";
         }
         
     }
@@ -102,6 +103,9 @@ class Direccion{
         Ciudad
         <input type="text" class="col-sm-2 col-form-label" name="Ciudad" id="Ciudad" value="'.$query["direccion_ciudad"].'">
         </div> 
+
+        
+        <input type="hidden" name="idCliente" value="'.$query["id_usuario"].'">
         
         <button type="submit" class="btn btn-warning" name="ModificarDireccion">Modificar direccion</button>
         
@@ -115,5 +119,11 @@ class Direccion{
         $con=$this->conectarBD();
         mysqli_query($con, "UPDATE direcciones SET direccion_calle='$this->calle', direccion_numInt='$this->numeroIn', direccion_numExt='$this->numeroEx', direccion_estado='$this->estado', direccion_colonia='$this->colonia', direccion_codigoPost='$this->codigoPos', direccion_ciudad='$this->ciudad'    WHERE direccion_id =$id") or die(mysqli_error($con));
     }
+
+    public function BorrarDireccion($id){
+        $con=$this->conectarBD();
+        mysqli_query($con, "DELETE FROM direcciones where direccion_id='$id'");
+    }
 }
+
 ?>

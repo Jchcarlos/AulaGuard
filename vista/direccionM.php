@@ -21,6 +21,7 @@ include "../modelo/direccion.php";
 $id=$_GET['idD'];
 $dir=new Direccion;
 $dir->direc($id);  
+
 ?>
 
 <!-- Contact Section End -->

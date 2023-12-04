@@ -58,6 +58,8 @@ $usuario_data = $_SESSION['usuario_data'];
                         <div class="list-group list-group-flush account-settings-links">
                             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
                             <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notificaciones</a>
+                            <a class="list-group-item list-group-item-action" href="direcciones.php">Mis direcciones</a>
+                            <a class="list-group-item list-group-item-action" href="citasUsuario.php">Mis citas</a>
                         </div>
                     </div>
                     <div class="col-md-9">

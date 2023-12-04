@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "../modelo/conexion.php"; 
+$usuario_data = $_SESSION['usuario_data'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,6 +61,8 @@
         Ciudad
         <input type="text" class="col-sm-2 col-form-label" name="Ciudad" id="Ciudad">
         </div> 
+        
+        <input type="number" name="idCliente" value="<?php print $usuario_data['usuario_id']?>">
         
         <button type="submit" class="btn btn-warning" name="AgregarDireccion">Agregar direccion</button>
         

@@ -66,34 +66,25 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                 </div>
               </div>
             </div>
+            
             <!-- content-wrapper ends -->
             <main>
-            
             <?php
-            /*$fechaActual = new DateTime();
-            $fechaActual->sub(new DateInterval('P1D'));
-            $fechaNueva = $fechaActual->format('d-m-Y');*/
-            include "../../modelo/instaladores.php";
-            $id=$_GET['idV'];
-            $idCliente=$_GET['idC'];
-            ?>
-
-    <form action="../../controlador/Control.php" method="post">
-
-    <input type="datetime-local" class="form-control" name="fecha" id="fecha">
+    include "../../modelo/instaladores.php";
+    $id=$_GET["idC"];
+    ?>
+    <form action="../../Controlador/Control.php" method="post">
+        <input type="hidden" name="id"value="<?php print $id?>">
+    <select name="status" required class="form-select">
+        <option value="" disabled selected>Estado de la cita</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Cancelada">Cancelada</option>
+        <option value="Realizada">Realizada</option>
+        </select>
         <br>
-        <input type="hidden" name="idVenta" value="<?php print $id ?>">
-        <input type="hidden" name="status" value="Pendiente">
-        
-        <input type="hidden" name="idCliente" value="<?php print $idCliente ?>">
-       
-        
-        <button type="submit" name="RegistrarCita" class="btn btn-primary">Registrar cita</button>
-        
+        <button type="submit" name="CambiarStatus" class="btn btn-primary">Modificar Estado</button>
     </form>
-
-
-            </main>
+          </main>
             <!-- partial:partials/_footer.html -->
             <?php
             include "../modulos/footerDash.php";

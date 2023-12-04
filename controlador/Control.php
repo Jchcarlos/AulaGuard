@@ -7,7 +7,7 @@ $cita= new Instalador();
 //agregar una nueva dirección
 if(isset($_REQUEST["AgregarDireccion"])){
 
-$direc->inicializar($_POST['Calle'], $_POST['NumeroInterior'], $_POST['NumeroExterior'], $_POST['Estado'], $_POST['Colonia'], $_POST['CodigoPos'], $_POST['Ciudad']);
+$direc->inicializar($_POST['Calle'], $_POST['NumeroInterior'], $_POST['NumeroExterior'], $_POST['Estado'], $_POST['Colonia'], $_POST['CodigoPos'], $_POST['Ciudad'], $_POST['idCliente']);
 $direc->agregarDireccion();
 print '<script>
     window.alert("Dirección agregada");
@@ -18,12 +18,11 @@ print '<script>
 //El status debe de estar como pendiente
 elseif(isset($_REQUEST["RegistrarCita"])){
 
-    $cita->inicializarCita($_POST['fecha'], $_POST['idVenta'], $_POST['status']);
+    $cita->inicializarCita($_POST['fecha'], $_POST['idVenta'], $_POST['status'], $_POST['idCliente']);
     $cita->citar();
-    print $_POST['idVenta'];
     print '<script>
         window.alert("Cita registrada");
-        window.location.href="../index.php";
+        window.location.href="../vista/admin/ventas.php";
         </script>';
 }//se modifica el estatus (el control es del instalador)
 elseif(isset($_REQUEST["CambiarStatus"])){
@@ -31,12 +30,12 @@ elseif(isset($_REQUEST["CambiarStatus"])){
     $cita->status($_POST['id'], $_POST['status']);
     print '<script>
     window.alert("Status actualizado correctamente");
-    window.location.href="../Vista/citas.php";
+    window.location.href="../vista/admin/instalacion.php";
     </script>'; 
 
 }//se modifica la fecha y la hora
 elseif(isset($_REQUEST['ModificarCita'])){
-    $cita->inicializarCita($_POST['fecha'], $_POST['idVenta'], $_POST['status']);
+    $cita->inicializarCita($_POST['fecha'], $_POST['idVenta'], $_POST['status'], $_POST['idCliente']);
     $cita->modCita($_POST['id_cita']);
     print '<script>
         window.alert("Cita Modificada exitosamente");
@@ -44,12 +43,13 @@ elseif(isset($_REQUEST['ModificarCita'])){
         </script>';
 }//se modifica la direccion
 elseif(isset($_REQUEST['ModificarDireccion'])){
-    $direc->inicializar($_POST['Calle'], $_POST['NumeroInterior'], $_POST['NumeroExterior'], $_POST['Estado'], $_POST['Colonia'], $_POST['CodigoPos'], $_POST['Ciudad']);
+    $direc->inicializar($_POST['Calle'], $_POST['NumeroInterior'], $_POST['NumeroExterior'], $_POST['Estado'], $_POST['Colonia'], $_POST['CodigoPos'], $_POST['Ciudad'], $_POST['idCliente']);
     $direc->modDireccion($_POST['id']);
     print '<script>
     window.alert("Dirección modificada exitosamente");
-    window.location.href="../vista/direccionM.php";
+    window.location.href="../vista/direcciones.php";
     </script>';
+    
 }
 
 
