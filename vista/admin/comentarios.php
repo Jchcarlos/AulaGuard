@@ -51,8 +51,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
+
       <?php
       include "../modulos/lateral.php";
       ?>
@@ -73,6 +72,13 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             <main>
               <div class="container">
                 <h1 class="page-header text-center">Comentarios</h1>
+                <!--BARRA BUSQUEDA-->
+                <div class="col-8 p-4" style="margin: 0 auto">
+                  <div class="d-flex">
+                  <input type="text" id="busqueda" class="form-control me-2" placeholder="Buscar...">
+                  <button id="buscar" class="btn btn-outline-success">Buscar</button>
+                  </div>
+                </div>   
                 <div class="row">
                   <div class="col-sm-12">
 
@@ -93,7 +99,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                           $sql = 'SELECT * FROM comentarios';
                           foreach ($db->query($sql) as $row) {
                         ?>
-                            <tr>
+                            <tr class="usuario-fila">
                               <td><?php echo $row['comentario_id']; ?></td>
                               <td><?php echo $row['comentario_tipo']; ?></td>
                               <td><?php echo $row['comentario_email']; ?></td>
@@ -143,9 +149,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                       </tbody>
                     </table>
                   </div>
-
                 </div>
-
               </div>
               <?php include('agregarCategoria.php'); ?>
             </main>
@@ -176,5 +180,32 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
       <script src="../recursos/js/dashboard.js"></script>
       <script src="../recursos/js/Chart.roundedBarCharts.js"></script>
       <!-- End custom js for this page-->
+      <script>
+          $(document).ready(function () {
+              $("#buscar").on("click", function () {
+                  var inputValor = $("#busqueda").val().toLowerCase();
+
+                  $(".usuario-fila").each(function () {
+                      var filaVisible = false;
+
+                      $(this).find("td").each(function () {
+                          var textoCelda = $(this).text().toLowerCase();
+
+                          if (textoCelda.indexOf(inputValor) !== -1) {
+                              filaVisible = true;
+                              return false; // Rompe el bucle al encontrar una coincidencia
+                          }
+                      });
+
+                      // Muestra u oculta la fila según la búsqueda
+                      if (filaVisible) {
+                          $(this).show();
+                      } else {
+                          $(this).hide();
+                      }
+                  });
+              });
+          });
+      </script>
 </body>
 </html>
