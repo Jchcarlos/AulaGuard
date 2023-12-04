@@ -69,9 +69,17 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
               </div>
             </div>
             <!-- content-wrapper ends -->
-            <main>
+            <main>    
+                   
               <div class="container">
                 <h1 class="page-header text-center">Usuarios</h1>
+                <!--BARRA BUSQUEDA-->
+                <div class="col-8 p-4" style="margin: 0 auto">
+                  <div class="d-flex">
+                  <input type="text" id="busqueda" class="form-control me-2" placeholder="Buscar...">
+                  <button id="buscar" class="btn btn-outline-success">Buscar</button>
+                  </div>
+                </div>   
                 <div class="row">
                   <div class="col-sm-12">
 
@@ -96,7 +104,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
                           $sql = 'SELECT * FROM usuarios';
                           foreach ($db->query($sql) as $row) {
                         ?>
-                            <tr>
+                            <tr class="usuario-fila">
                               <td><?php echo $row['usuario_id']; ?></td>
                               <td><?php echo $row['usuario_nombre']; ?></td>
                               <td><?php echo $row['usuario_apellidoM']; ?></td>
@@ -158,7 +166,6 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
         </div>
       </div>
       <!-- container-scroller -->
-
       <!-- plugins:js -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="bootstrap.minC.js"></script>
@@ -181,8 +188,37 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
       <script src="../recursos/js/dashboard.js"></script>
       <script src="../recursos/js/Chart.roundedBarCharts.js"></script>
       <!-- End custom js for this page-->
+
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              $("#buscar").on("click", function () {
+                  var inputValor = $("#busqueda").val().toLowerCase();
+
+                  $(".usuario-fila").each(function () {
+                      var filaVisible = false;
+
+                      $(this).find("td").each(function () {
+                          var textoCelda = $(this).text().toLowerCase();
+
+                          if (textoCelda.indexOf(inputValor) !== -1) {
+                              filaVisible = true;
+                              return false; // Rompe el bucle al encontrar una coincidencia
+                          }
+                      });
+
+                      // Muestra u oculta la fila según la búsqueda
+                      if (filaVisible) {
+                          $(this).show();
+                      } else {
+                          $(this).hide();
+                      }
+                  });
+              });
+          });
+      </script>
+
 </body>
 </html>
-
 
 
