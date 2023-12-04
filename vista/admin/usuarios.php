@@ -20,8 +20,9 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AulaGuuard </title>
+  <title>Usuarios - Admin AulaGuuard </title>
   <!-- plugins:css -->
+  <link href="bootstrap.minC.css" rel="stylesheet">
   <link rel="stylesheet" href="../recursos/">
   <link rel="stylesheet" href="../recursos/vendors/feather/feather.css">
   <link rel="stylesheet" href="../recursos/vendors/mdi/css/materialdesignicons.min.css">
@@ -36,6 +37,8 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../recursos/css/vertical-layout-light/style.css">
+  <script src="https://kit.fontawesome.com/a45e4463fd.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
   <!-- endinject -->
 </head>
 
@@ -48,8 +51,7 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
+
       <?php
       include "../modulos/lateral.php";
       ?>
@@ -68,83 +70,98 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
             </div>
             <!-- content-wrapper ends -->
             <main>
-              <script>
-                function eliminar() {
-                  var respuesta = confirm("¿Estás seguro que deseas eliminar la puntuación?");
-                  return respuesta;
-                }
-              </script>
-              <h1 class="text-center p-3">Lista Usuarios</h1>
-              <?php
-                include "../../modelo/conexion.php";
-                include "../../controlador/eliminar_puntuacion.php";
-              ?>
-              <!--BARRA BUSQUEDA-->
-              <div class="col-8 p-4" style="margin: 0 auto">
-                <div class="d-flex">
+              <div class="container">
+                <h1 class="page-header text-center">Usuarios</h1>
+                <div class="row">
+                  <div class="col-sm-12">
 
-                <input type="text" id="busqueda" class="form-control me-2" placeholder="Buscar...">
-                <button id="buscar" class="btn btn-outline-success">Buscar</button>
-                
+                    <table class="table table-bordered table-striped" id="MiAgenda" style="margin-top:20px;">
+                      <thead>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO PATERNO</th>
+                        <th>APELLIDO MATERNO</th>
+                        <th>EMAIL</th>
+                        <th>CONTRASEÑA</th>
+                        <th>TELEFONO</th>
+                        <th>ROL</th>
+                        <th>ACCIONES</th>
+                      </thead>
+                      <tbody>
+                        <?php
+                        require("../../modelo/conexion1.php");
+                        $database = new ConectarDB();
+                        $db = $database->open();
+                        try {
+                          $sql = 'SELECT * FROM usuarios';
+                          foreach ($db->query($sql) as $row) {
+                        ?>
+                            <tr>
+                              <td><?php echo $row['usuario_id']; ?></td>
+                              <td><?php echo $row['usuario_nombre']; ?></td>
+                              <td><?php echo $row['usuario_apellidoM']; ?></td>
+                              <td><?php echo $row['usuario_apellidoP']; ?></td>
+                              <td><?php echo $row['usuario_email']; ?></td>
+                              <td><?php echo $row['usuario_password']; ?></td>
+                              <td><?php echo $row['usuario_telefono']; ?></td>
+                              <td><?php echo $row['usuario_rol']; ?></td>
+                              <td>
+                                <a href="#deleteUsuario_<?php echo $row['usuario_id']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"><span class="fa fa-trash"></span> Eliminar</a>
+                              </td>
+                              </td>
+                              <!-- Eliminar -->
+                              <div class="modal fade" id="deleteUsuario_<?php echo $row['usuario_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog " role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <center>
+                                        <h4 class="modal-title">Borrar Usuario </h4>
+                                      </center>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
 
+                                    <div class="modal-body">
+                                      <p class="text-center">¿Estas seguro en borrar los datos de? </p>
+                                      <h2 class="text-center"> <?php echo $row['usuario_email']; ?></h2>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+                                      <a href="deleteUsuario.php?usuario_id=<?php echo $row['usuario_id']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span> Si</a>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </tr>
+
+                        <?php
+
+                          }
+                        } catch (PDOException $e) {
+                          echo 'Hay probleas con la conexion : ' . $e->getmessage();
+                        }
+                        $database->close();
+
+                        ?>
+
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>            
-
-              <div class="col-8 p-4" style="">
-              <table class="table table-striped table-hover" id="miTabla">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col" class="nombre">Nombre</th>
-                        <th scope="col" class="apellidoP">Apellido P</th>
-                        <th scope="col" class="apellidoM">Apellido M</th>
-                        <th scope="col" class="correo">Correo</th>
-                        <th scope="col" class="password">Password</th>
-                        <th scope="col" class="telefono">Telefono</th>
-                        <th scope="col" class="rol">Rol</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    include("../../modelo/conexion.php");
-                    include("../../controlador/eliminar_puntuacion.php");
-
-                    $sql = $conexion->query("SELECT * FROM usuarios");
-                    while ($datos = $sql->fetch_object()) { ?>
-                        <tr class="fila">
-                            <td><?= $datos->usuario_id ?></td>
-                            <td><?= $datos->usuario_nombre ?></td>
-                            <td><?= $datos->usuario_apellidoP ?></td>
-                            <td><?= $datos->usuario_apellidoM ?></td>
-                            <td><?= $datos->usuario_email ?></td>
-                            <td><?= $datos->usuario_password ?></td>
-                            <td><?= $datos->usuario_telefono ?></td>
-                            <td><?= $datos->usuario_rol ?></td>
-                            <td>
-                                <a href="../../controlador/editar_usuario.php?id=<?= $datos->usuario_id ?>" class="btn btn-small btn-primary">Editar</a>
-                                <a href="../../controlador/eliminar_usuario.php?id=<?= $datos->usuario_id ?>" class="btn btn-small btn-danger">Eliminar</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-              </table>
-
               </div>
+              <?php include('agregarCategoria.php'); ?>
             </main>
-            <!-- partial:partials/_footer.html -->
-            <?php
-            include "../modulos/footerDash.php";
-            ?>
-            <!-- partial -->
           </div>
-          <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
 
       <!-- plugins:js -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="bootstrap.minC.js"></script>
       <script src="../recursos/vendors/js/vendor.bundle.base.js"></script>
       <!-- endinject -->
       <!-- Plugin js for this page -->
@@ -163,107 +180,9 @@ if (isset($_SESSION['usuario_email']) && $_SESSION['usuario_rol'] === 'administr
       <!-- Custom js for this page-->
       <script src="../recursos/js/dashboard.js"></script>
       <script src="../recursos/js/Chart.roundedBarCharts.js"></script>
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      
-      <!--BARRA BUSQUEDA-->
-      <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          const inputBusqueda = document.getElementById("busqueda");
-          const tabla = document.getElementById("miTabla");
-
-          document.getElementById("buscar").addEventListener("click", function() {
-              buscarEnTabla();
-          });
-
-          inputBusqueda.addEventListener("input", function() {
-              buscarEnTabla();
-          });
-
-          function buscarEnTabla() {
-              const filtro = inputBusqueda.value.toLowerCase();
-              const filas = tabla.getElementsByClassName("fila");
-
-              for (let i = 0; i < filas.length; i++) {
-                  let coincidencia = false;
-                  const celdas = filas[i].querySelectorAll("td");
-
-                  celdas.forEach(function(celda) {
-                      const texto = celda.textContent.toLowerCase();
-                      if (texto.includes(filtro)) {
-                          coincidencia = true;
-                      }
-                  });
-
-                  filas[i].style.display = coincidencia ? "" : "none";
-              }
-          }
-      });
-      </script>
-
-      <!--AGREGAR USUARIOS-->
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          // ... Código anterior ...
-
-          // Obtén el botón para abrir el formulario
-          const btnAbrirFormulario = document.getElementById("btnAbrirFormulario");
-          const formularioRegistro = document.getElementById("formularioRegistro");
-
-          // Agregar evento al botón para abrir el formulario
-          btnAbrirFormulario.addEventListener("click", function () {
-            formularioRegistro.style.display = "block"; // Muestra el formulario
-          });
-
-          // Agregar evento al botón para cancelar el registro y ocultar el formulario
-          const btnCancelarRegistro = document.getElementById("btnCancelarRegistro");
-          btnCancelarRegistro.addEventListener("click", function () {
-            formularioRegistro.style.display = "none"; // Oculta el formulario
-            document.getElementById("formRegistro").reset(); // Limpia el formulario
-          });
-
-          // Agregar evento al formulario para manejar el envío de datos
-          const formRegistro = document.getElementById("formRegistro");
-          formRegistro.addEventListener("submit", function (e) {
-            e.preventDefault(); // Evita la recarga de la página
-
-            // Obtén los datos del formulario
-            const nombre = document.getElementById("nombre").value;
-            const apellidoP = document.getElementById("apellidoP").value;
-            // Agrega más campos según corresponda
-
-            // Realiza una solicitud AJAX para enviar los datos al servidor y agregar el usuario en la base de datos
-            // Aquí debes implementar la lógica para agregar el usuario en el servidor
-
-            // Luego, puedes actualizar la tabla de usuarios con los nuevos datos o recargar la página para ver al usuario agregado
-
-            // Ejemplo de una solicitud AJAX con Fetch API (puedes usar jQuery u otra librería si lo prefieres)
-            fetch("/ruta/para/agregar/usuario.php", {
-              method: "POST",
-              body: JSON.stringify({ nombre, apellidoP }), // Envía los datos al servidor
-              headers: {
-                "Content-Type": "application/json",
-              },
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                // Realiza alguna acción con la respuesta del servidor, si es necesario
-                console.log("Respuesta del servidor:", data);
-              });
-
-            // Limpia el formulario y ocúltalo
-            formularioRegistro.style.display = "none";
-            formRegistro.reset();
-          });
-        });
-      </script>
-
-
-
-
       <!-- End custom js for this page-->
 </body>
-
 </html>
+
 
 
