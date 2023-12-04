@@ -1,8 +1,7 @@
 <?php
-
 if (!empty($_GET["id"])) {
     $id = $_GET["id"];
-    $sql = $conexion->query(" delete from puntuaciones where puntuacion_id=$id");
+    $sql = $conexion->query(" delete from puntuaciones where review_id=$id");
     if ($sql == 1) {
         echo '<script>
             var resp=confirm("La puntuación se ha eliminado correctamente");
@@ -13,5 +12,4 @@ if (!empty($_GET["id"])) {
     </script>';
     }
 }
-
 ?>
